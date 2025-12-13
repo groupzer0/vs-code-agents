@@ -1,6 +1,6 @@
 # AI Agent System
 
-A coordinated multi-agent system for software development, available for both **VS Code (GitHub Copilot)** and **Claude Code CLI**.
+A coordinated multi-agent system for software development, available for **VS Code (GitHub Copilot)**, **GitHub Copilot CLI**, and **Claude Code CLI**.
 
 ## Features
 
@@ -22,6 +22,26 @@ A coordinated multi-agent system for software development, available for both **
 .\scripts\install-vscode-repo.ps1 -RepoPath "C:\Path\To\Repo"
 ```
 
+### GitHub Copilot CLI
+
+```powershell
+# Per-repository installation (recommended)
+.\scripts\install-copilot-cli-repo.ps1 -RepoPath "C:\Path\To\Repo"
+
+# Global installation (currently has known issues - see Issue #2)
+.\scripts\install-copilot-cli-global.ps1
+```
+
+**Usage:**
+```bash
+# Command-line invocation
+copilot --agent analyst --prompt "investigate issue X"
+
+# Interactive mode
+copilot
+/agent implementer
+```
+
 ### Claude Code
 
 ```powershell
@@ -36,6 +56,7 @@ A coordinated multi-agent system for software development, available for both **
 
 ```
 ├── vs-code-agents/          # VS Code / GitHub Copilot agents
+├── copilot-cli/             # GitHub Copilot CLI agents
 ├── claude/                   # Claude Code CLI agents
 ├── scripts/                  # Installation scripts
 ├── copilot-instructions.md   # GitHub Copilot instructions

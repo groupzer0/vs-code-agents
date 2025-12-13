@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository provides a coordinated multi-agent system for software development, available for both **VS Code (GitHub Copilot)** and **Claude Code CLI**. Each agent focuses on a specific phase or concern with clear responsibilities, constraints, and handoffs.
+This repository provides a coordinated multi-agent system for software development, available for **VS Code (GitHub Copilot)**, **GitHub Copilot CLI**, and **Claude Code CLI**. Each agent focuses on a specific phase or concern with clear responsibilities, constraints, and handoffs.
 
 ### Typical Workflow
 
@@ -28,6 +28,20 @@ The Memory agent provides long-running context across sessions using `cloudmcp-m
 .\scripts\install-vscode-repo.ps1 -RepoPath "C:\Path\To\Your\Repo"
 ```
 
+### GitHub Copilot CLI Installation
+
+**Per-repository (recommended):**
+```powershell
+.\scripts\install-copilot-cli-repo.ps1 -RepoPath "C:\Path\To\Your\Repo"
+```
+
+**Global (known issues - see [Issue #2](https://github.com/rjmurillo/vs-code-agents/issues/2)):**
+```powershell
+.\scripts\install-copilot-cli-global.ps1
+```
+
+> **Note:** User-level agents in `~/.copilot/agents/` are not currently loaded due to [GitHub Issue #452](https://github.com/github/copilot-cli/issues/452). Use per-repository installation.
+
 ### Claude Code Installation
 
 **Global (all sessions):**
@@ -48,11 +62,15 @@ The Memory agent provides long-running context across sessions using `cloudmcp-m
 .
 ├── vs-code-agents/          # VS Code / GitHub Copilot agents
 │   └── *.agent.md
+├── copilot-cli/             # GitHub Copilot CLI agents
+│   └── *.agent.md
 ├── claude/                   # Claude Code CLI agents
 │   └── *.md
 ├── scripts/                  # Installation scripts
 │   ├── install-vscode-global.ps1
 │   ├── install-vscode-repo.ps1
+│   ├── install-copilot-cli-global.ps1
+│   ├── install-copilot-cli-repo.ps1
 │   ├── install-claude-global.ps1
 │   └── install-claude-repo.ps1
 ├── copilot-instructions.md   # GitHub Copilot instructions
@@ -115,6 +133,40 @@ In GitHub Copilot Chat:
 ### More Information
 
 See the official documentation: https://code.visualstudio.com/docs/copilot/copilot-agents
+
+---
+
+## GitHub Copilot CLI Usage
+
+### Invoking Agents
+
+**Command-line invocation:**
+```bash
+copilot --agent analyst --prompt "investigate why tests are failing"
+copilot --agent implementer --prompt "fix the bug in UserService.cs"
+copilot --agent orchestrator --prompt "help me implement a new feature"
+```
+
+**Interactive mode:**
+```bash
+copilot
+/agent analyst
+```
+
+### Installation Locations
+
+| Type | Location | Status |
+|------|----------|--------|
+| Per-repo | `.github/agents/` | **Works** |
+| Global | `~/.copilot/agents/` | Known bug (#452) |
+
+### Important Notes
+
+- Use per-repository installation until global agent loading is fixed
+- Agents are defined with YAML frontmatter including `name`, `description`, and `tools`
+- MCP servers (like `cloudmcp-manager`) need separate configuration in `~/.copilot/mcp-config.json`
+
+See the official documentation: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli
 
 ---
 
