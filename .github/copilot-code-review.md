@@ -1,10 +1,11 @@
 # Code Review Instructions for Agent Consistency
 
-When reviewing pull requests that modify agent files, pay close attention to **drift between VS Code and Claude versions** of agents.
+When reviewing pull requests that modify agent files, pay close attention to **drift between VS Code, Copilot CLI, and Claude versions** of agents.
 
 ## Agent Locations
 
 - **VS Code agents**: `vs-code-agents/*.agent.md`
+- **Copilot CLI agents**: `copilot-cli/*.agent.md`
 - **Claude agents**: `claude/*.md`
 
 ## Expected Differences (Acceptable)
@@ -13,14 +14,17 @@ These differences are expected and should NOT be flagged:
 
 ### Frontmatter
 - **VS Code** uses: `description`, `tools`, `model` (e.g., `Claude Opus 4.5 (anthropic)`)
+- **Copilot CLI** uses: `name`, `description`, `tools` (no model - ignored by Copilot CLI)
 - **Claude** uses: `name`, `description`, `model` (e.g., `opus`, `sonnet`, `haiku`)
 
 ### Tool References
-- **VS Code** references: `vscode`, `execute`, `read`, `edit`, `search`, `web`, `agent`, `todo`, MCP tool paths like `cloudmcp-manager/*`, `github/*`
+- **VS Code** references: `vscode`, `execute`, `read`, `edit`, `search`, `web`, `agent`, `todo`, MCP tool paths like `cloudmcp-manager/*`, `github/*`, VS Code extension tools like `github.vscode-pull-request-github/*`
+- **Copilot CLI** references: `shell`, `read`, `edit`, `search`, `web`, `agent`, `todo`, MCP tool paths like `cloudmcp-manager/*`, `github/*` (no `vscode` or VS Code extension tools)
 - **Claude** references: `Read`, `Write`, `Edit`, `Grep`, `Glob`, `Bash`, `TodoWrite`, `Task`, MCP functions like `mcp__cloudmcp-manager__memory-*`
 
 ### Invocation Syntax
 - **VS Code**: `@agent-name` mentions, `#runSubagent`
+- **Copilot CLI**: `copilot --agent agent-name`, `/agent agent-name`
 - **Claude**: `Task(subagent_type="agent-name", prompt="...")`
 
 ## Must Be Consistent (Flag Drift)
@@ -78,8 +82,8 @@ Scoring thresholds and penalties must be identical for skillbook/retrospective a
 
 When an agent file is modified, verify:
 
-- [ ] **Corresponding agent updated**: If `vs-code-agents/analyst.agent.md` changes, check if `claude/analyst.md` needs the same update
-- [ ] **Core identity unchanged** or changed in both
+- [ ] **Corresponding agents updated**: If `vs-code-agents/analyst.agent.md` changes, check if `copilot-cli/analyst.agent.md` and `claude/analyst.md` need the same update
+- [ ] **Core identity unchanged** or changed in all versions
 - [ ] **Responsibilities match** between versions
 - [ ] **Handoff targets consistent**
 - [ ] **Memory protocol aligned**
@@ -88,27 +92,27 @@ When an agent file is modified, verify:
 
 ## Agent Mapping
 
-| VS Code Agent | Claude Agent |
-|---------------|--------------|
-| `analyst.agent.md` | `analyst.md` |
-| `architect.agent.md` | `architect.md` |
-| `critic.agent.md` | `critic.md` |
-| `devops.agent.md` | *(no equivalent)* |
-| `explainer.agent.md` | `create-explainer.md` |
-| `high-level-advisor.agent.md` | `high-level-advisor.md` |
-| `implementer.agent.md` | `csharp-expert.md` |
-| `independent-thinker.agent.md` | `independent-thinker.md` |
-| `memory.agent.md` | `memory.md` |
-| `orchestrator.agent.md` | *(built-in)* |
-| `planner.agent.md` | `planner.md` |
-| `qa.agent.md` | `qa.md` |
-| `retrospective.agent.md` | `retrospective.md` |
-| `roadmap.agent.md` | *(no equivalent)* |
-| `security.agent.md` | *(no equivalent)* |
-| `skillbook.agent.md` | `skillbook.md` |
-| `task-generator.agent.md` | `generate-tasks.md` |
-| *(no equivalent)* | `csharp-pod.md` |
-| *(no equivalent)* | `feature-request-review.md` |
+| VS Code Agent | Copilot CLI Agent | Claude Agent |
+|---------------|-------------------|--------------|
+| `analyst.agent.md` | `analyst.agent.md` | `analyst.md` |
+| `architect.agent.md` | `architect.agent.md` | `architect.md` |
+| `critic.agent.md` | `critic.agent.md` | `critic.md` |
+| `devops.agent.md` | `devops.agent.md` | *(no equivalent)* |
+| `explainer.agent.md` | `explainer.agent.md` | `create-explainer.md` |
+| `high-level-advisor.agent.md` | `high-level-advisor.agent.md` | `high-level-advisor.md` |
+| `implementer.agent.md` | `implementer.agent.md` | `csharp-expert.md` |
+| `independent-thinker.agent.md` | `independent-thinker.agent.md` | `independent-thinker.md` |
+| `memory.agent.md` | `memory.agent.md` | `memory.md` |
+| `orchestrator.agent.md` | `orchestrator.agent.md` | *(built-in)* |
+| `planner.agent.md` | `planner.agent.md` | `planner.md` |
+| `qa.agent.md` | `qa.agent.md` | `qa.md` |
+| `retrospective.agent.md` | `retrospective.agent.md` | `retrospective.md` |
+| `roadmap.agent.md` | `roadmap.agent.md` | *(no equivalent)* |
+| `security.agent.md` | `security.agent.md` | *(no equivalent)* |
+| `skillbook.agent.md` | `skillbook.agent.md` | `skillbook.md` |
+| `task-generator.agent.md` | `task-generator.agent.md` | `generate-tasks.md` |
+| *(no equivalent)* | *(no equivalent)* | `csharp-pod.md` |
+| *(no equivalent)* | *(no equivalent)* | `feature-request-review.md` |
 
 ## Flagging Drift
 
@@ -117,25 +121,24 @@ When you detect drift, comment with:
 ```markdown
 ⚠️ **Agent Drift Detected**
 
-The following inconsistency was found between VS Code and Claude versions:
+The following inconsistency was found between agent versions:
 
-| Aspect | VS Code (`file.agent.md`) | Claude (`file.md`) |
-|--------|---------------------------|-------------------|
-| [Aspect] | [VS Code version] | [Claude version] |
+| Aspect | VS Code | Copilot CLI | Claude |
+|--------|---------|-------------|--------|
+| [Aspect] | [VS Code version] | [Copilot CLI version] | [Claude version] |
 
-**Recommendation**: Update [file] to match [other file] for consistency.
+**Recommendation**: Update [file(s)] to match for consistency.
 ```
 
 ## Sync Recommendations
 
-If changes are made to one version, suggest updating the other:
+If changes are made to one version, suggest updating the others:
 
 ```markdown
 📝 **Sync Recommended**
 
-This PR modifies `vs-code-agents/analyst.agent.md`. Consider updating `claude/analyst.md` to maintain consistency:
+This PR modifies `vs-code-agents/analyst.agent.md`. Consider updating these files to maintain consistency:
 
-- [ ] Core identity updated
-- [ ] Responsibilities synced
-- [ ] Handoff protocol aligned
+- [ ] `copilot-cli/analyst.agent.md` - Core identity, responsibilities, handoff protocol
+- [ ] `claude/analyst.md` - Core identity, responsibilities, handoff protocol
 ```
