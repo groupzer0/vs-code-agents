@@ -108,6 +108,7 @@ The Memory agent provides long-running context across sessions using `cloudmcp-m
 | **retrospective** | Reflector/learning | Outcome analysis, skill extraction |
 | **explainer** | Documentation | PRDs, technical specs |
 | **task-generator** | Task decomposition | Breaking epics into tasks |
+| **pr-comment-responder** | PR review handler | Addressing bot/human review comments |
 
 ---
 

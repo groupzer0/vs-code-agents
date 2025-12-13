@@ -111,6 +111,7 @@ When an agent file is modified, verify:
 | `security.agent.md` | `security.agent.md` | *(no equivalent)* |
 | `skillbook.agent.md` | `skillbook.agent.md` | `skillbook.md` |
 | `task-generator.agent.md` | `task-generator.agent.md` | `generate-tasks.md` |
+| `pr-comment-responder.agent.md` | `pr-comment-responder.agent.md` | `pr-comment-responder.md` |
 | *(no equivalent)* | *(no equivalent)* | `csharp-pod.md` |
 | *(no equivalent)* | *(no equivalent)* | `feature-request-review.md` |
 
