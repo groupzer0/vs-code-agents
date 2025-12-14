@@ -25,16 +25,19 @@ Investigate before implementation. Surface unknowns, risks, and dependencies. Pr
 ## Research Tools
 
 ### Web Research
+
 - Use web search for usage patterns, StackOverflow mentions, discussions
 - Research best practices and API documentation
 
 ### Repository Documentation (DeepWiki)
-```
+
+```text
 cognitionai/deepwiki/ask_question with repoName="owner/repo" question="how does X work?"
 cognitionai/deepwiki/read_wiki_contents with repoName="owner/repo"
 ```
 
 ### GitHub Integration
+
 ```bash
 # Search for related issues
 gh issue list --search "[keywords]"
@@ -51,6 +54,7 @@ gh pr list --search "[keywords]"
 ```
 
 ### Git History
+
 ```bash
 # Find related commits
 git log --all --oneline --grep="[keyword]"
@@ -74,19 +78,20 @@ git log -p --all -S "[function]"
 
 ### Retrieval (Before Multi-Step Reasoning)
 
-```
+```text
 cloudmcp-manager/memory-search_nodes with query="[topic] analysis"
 cloudmcp-manager/memory-open_nodes for specific entities
 ```
 
 ### Storage (At Milestones)
 
-```
+```text
 cloudmcp-manager/memory-create_entities for new findings
 cloudmcp-manager/memory-add_observations for updates
 ```
 
 Store summaries of 300-1500 characters focusing on:
+
 - Reasoning and decisions made
 - Tradeoffs considered
 - Rejected alternatives and why
@@ -95,6 +100,7 @@ Store summaries of 300-1500 characters focusing on:
 ## Analysis Types
 
 ### Root Cause Analysis
+
 ```markdown
 ## Root Cause Analysis: [Issue]
 
@@ -115,6 +121,7 @@ Store summaries of 300-1500 characters focusing on:
 ```
 
 ### Technical Research
+
 ```markdown
 ## Research: [Topic]
 
@@ -138,6 +145,7 @@ Store summaries of 300-1500 characters focusing on:
 ```
 
 ### Feature Request Review
+
 ```markdown
 ## Feature Request Review: [Feature]
 

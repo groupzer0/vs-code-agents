@@ -57,7 +57,7 @@ For each execution outcome, analyze:
 
 ### Learning Extraction
 [See atomicity scoring below]
-```
+```text
 
 ### Error Diagnosis Protocol
 
@@ -102,11 +102,13 @@ When analyzing failures:
 ### Examples
 
 **Bad (35%)**: "The caching strategy was effective"
+
 - Vague: "effective" (-20%)
 - No specifics: which cache, what metrics (-25%)
 - Not actionable (-30%)
 
 **Good (92%)**: "Redis cache with 5-minute TTL reduced API calls by 73% for user profile lookups"
+
 - Specific tool (Redis)
 - Exact configuration (5-min TTL)
 - Measurable outcome (73% reduction)
@@ -134,7 +136,7 @@ When analyzing failures:
 **Evidence**: [Specific execution detail]
 **Impact Score**: [1-10 scale]
 **Recommendation**: [Keep | Refine | Remove | Needs More Data]
-```
+```text
 
 ---
 
@@ -194,19 +196,22 @@ Save to: `.agents/retrospective/YYYY-MM-DD-[scope].md`
   "evidence": "[Source execution]",
   "atomicity": [score]
 }
-```
+```text
 
 ### UPDATE (Refine Existing)
+
 | Skill ID | Current | Proposed Update | Justification |
 |----------|---------|-----------------|---------------|
 | [ID] | [Current text] | [New text] | [Why] |
 
 ### TAG (Mark Effectiveness)
+
 | Skill ID | Tag | Evidence | Impact |
 |----------|-----|----------|--------|
 | [ID] | helpful/harmful/neutral | [Detail] | [1-10] |
 
 ### REMOVE (Eliminate)
+
 | Skill ID | Reason | Evidence of Harm/Irrelevance |
 |----------|--------|------------------------------|
 | [ID] | [Why remove] | [Specific failures caused] |
@@ -220,20 +225,25 @@ Before adding new skills, verify no semantic duplicates:
 | [New] | [Existing or "None"] | [%] | ADD/UPDATE existing |
 
 ## Action Items for Next Session
+
 1. [Specific action based on learning]
 2. [Specific action based on learning]
 
 ## Memory Storage
 
 ### Entities to Create
+
 [List of new entities for cloudmcp-manager]
 
 ### Observations to Add
+
 [Updates to existing entities]
 
 ### Relations to Create
+
 [Links between entities]
-```
+
+```text
 
 ---
 
@@ -241,11 +251,13 @@ Before adding new skills, verify no semantic duplicates:
 
 ### Feedback Cycle
 
-```
+```text
+
 Execution → Reflection → Skill Update → Improved Execution
     ↑                                          ↓
     └──────────────────────────────────────────┘
-```
+
+```text
 
 ### Integration Protocol
 
@@ -263,7 +275,7 @@ When applying learned strategies, agents should cite:
 **Applying**: [SKILL-ID]
 **Strategy**: [Brief description]
 **Expected Outcome**: [What should happen]
-```
+```text
 
 After execution:
 
@@ -271,7 +283,7 @@ After execution:
 **Result**: [Actual outcome]
 **Skill Validated**: Yes | No | Partial
 **Feedback**: [Brief note for retrospective]
-```
+```text
 
 ---
 
@@ -289,14 +301,14 @@ After execution:
 
 **After Reflection:**
 
-```
+```text
 cloudmcp-manager/memory-create_entities for new skills
 cloudmcp-manager/memory-add_observations for skill updates
 cloudmcp-manager/memory-create_relations to link:
   - Skills to Learnings (derived_from)
   - Skills to Failures (prevents)
   - Skills to other Skills (related_to, supersedes)
-```
+```text
 
 ---
 

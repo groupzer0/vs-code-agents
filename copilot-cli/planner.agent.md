@@ -32,14 +32,14 @@ Provide structure on objectives, process, value, and risks - not prescriptive co
 
 ### Retrieval (At Decision Points)
 
-```
+```text
 cloudmcp-manager/memory-search_nodes with query="planning [epic]"
 cloudmcp-manager/memory-open_nodes for previous plans
 ```
 
 ### Storage (At Milestones)
 
-```
+```text
 cloudmcp-manager/memory-create_entities for new plans
 cloudmcp-manager/memory-add_observations for plan updates
 ```

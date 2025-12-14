@@ -25,13 +25,13 @@ Identify security vulnerabilities, recommend mitigations, and ensure secure deve
 
 ### Retrieval
 
-```
+```text
 cloudmcp-manager/memory-search_nodes with query="security [topic]"
 ```
 
 ### Storage
 
-```
+```text
 cloudmcp-manager/memory-create_entities for vulnerabilities found
 cloudmcp-manager/memory-add_observations for remediation patterns
 ```

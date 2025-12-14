@@ -30,11 +30,12 @@ gh api repos/[owner]/[repo]/pulls/[number]/comments
 
 # Get PR reviews
 gh pr view [number] --repo [owner/repo] --json reviews
-```
+```text
 
 ### Phase 2: Comment Evaluation
 
 For each comment, assess:
+
 - **Technical Merit**: Is the suggestion correct and beneficial?
 - **Code Quality Impact**: Does it improve maintainability, readability, or correctness?
 - **False Positive Detection**: Is this a bot misunderstanding context?
@@ -43,6 +44,7 @@ For each comment, assess:
 ### Phase 3: Response Strategy
 
 **For Comments WITHOUT Merit:**
+
 1. Reply directly to the comment thread
 2. Provide clear technical reasoning for disagreement
 3. Always @ mention the author (e.g., `@copilot`, `@coderabbitai`, `@username`)
@@ -55,18 +57,20 @@ gh api repos/[owner]/[repo]/pulls/[number]/comments --input - <<'EOF'
   "in_reply_to": [comment_id]
 }
 EOF
-```
+```text
 
 **For Comments WITH Merit:**
+
 1. React with eyes emoji immediately to signal acknowledgment
+
 ```bash
 gh api repos/[owner]/[repo]/pulls/comments/[comment_id]/reactions -f content=eyes
-```
+```text
 
-2. Implement the fix
-3. Create an atomic commit
-4. Push the changes
-5. Reply with what changed, why, and the commit SHA
+1. Implement the fix
+2. Create an atomic commit
+3. Push the changes
+4. Reply with what changed, why, and the commit SHA
 
 ```bash
 gh api repos/[owner]/[repo]/pulls/[number]/comments --input - <<'EOF'
@@ -75,7 +79,7 @@ gh api repos/[owner]/[repo]/pulls/[number]/comments --input - <<'EOF'
   "in_reply_to": [comment_id]
 }
 EOF
-```
+```text
 
 ## Agent Orchestration
 
@@ -90,17 +94,17 @@ copilot --agent analyst --prompt "Investigate the root cause of: [issue]"
 
 # For verifying fixes
 copilot --agent qa --prompt "Verify fix doesn't introduce regressions"
-```
+```text
 
 ## Commit Message Format
 
-```
+```text
 fix: address PR review comment - [brief description]
 
 - [What was changed]
 - Addresses comment by @[reviewer]
 - [Any additional context]
-```
+```text
 
 ## Communication Guidelines
 
@@ -141,7 +145,7 @@ fix: address PR review comment - [brief description]
 
 ### Pending Discussion
 - [Any comments needing further input]
-```
+```text
 
 ## Handoff Protocol
 
@@ -154,15 +158,17 @@ fix: address PR review comment - [brief description]
 ## Memory Protocol (cloudmcp-manager)
 
 ### Retrieval
-```
+
+```text
 cloudmcp-manager/memory-search_nodes with query="PR review patterns"
-```
+```text
 
 ### Storage
-```
+
+```text
 cloudmcp-manager/memory-add_observations for reviewer preferences
 cloudmcp-manager/memory-create_entities for new patterns learned
-```
+```text
 
 ## Remember
 

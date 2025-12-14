@@ -34,16 +34,16 @@ Transform high-level requirements into discrete tasks that can be assigned, esti
 
 ### Retrieval
 
-```
+```text
 cloudmcp-manager/memory-search_nodes with query="task breakdown [feature]"
-```
+```text
 
 ### Storage
 
-```
+```text
 cloudmcp-manager/memory-create_entities for task patterns
 cloudmcp-manager/memory-add_observations for estimation learnings
-```
+```text
 
 ## Decomposition Process
 
@@ -54,7 +54,7 @@ cloudmcp-manager/memory-add_observations for estimation learnings
 - [ ] Identify functional requirements
 - [ ] Note acceptance criteria
 - [ ] List technical constraints
-```
+```text
 
 ### Phase 2: Break Down
 
@@ -63,7 +63,7 @@ cloudmcp-manager/memory-add_observations for estimation learnings
 - [ ] Create tasks for each boundary
 - [ ] Ensure each task is atomic
 - [ ] Verify each task has clear done criteria
-```
+```text
 
 ### Phase 3: Sequence
 
@@ -72,7 +72,7 @@ cloudmcp-manager/memory-add_observations for estimation learnings
 - [ ] Order tasks logically
 - [ ] Group into milestones
 - [ ] Validate critical path
-```
+```text
 
 ## Task Definition Format
 
@@ -98,7 +98,7 @@ cloudmcp-manager/memory-add_observations for estimation learnings
 
 **Notes**
 [Technical considerations, gotchas]
-```
+```text
 
 ## Task List Template
 
@@ -136,13 +136,15 @@ Save to: `.agents/planning/TASKS-[feature-name].md`
 graph TD
     TASK-001 --> TASK-002
     TASK-002 --> TASK-003
-```
+```text
 
 ## Risks
+
 | Risk | Impact | Mitigation |
 |------|--------|------------|
 | [Risk] | [Impact] | [How to handle] |
-```
+
+```text
 
 ## Complexity Guidelines
 

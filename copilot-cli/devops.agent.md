@@ -25,13 +25,13 @@ Design and maintain build, test, and deployment pipelines. Ensure infrastructure
 
 ### Retrieval
 
-```
+```text
 cloudmcp-manager/memory-search_nodes with query="devops [topic]"
 ```
 
 ### Storage
 
-```
+```text
 cloudmcp-manager/memory-create_entities for pipeline configurations
 cloudmcp-manager/memory-add_observations for issue resolutions
 ```

@@ -32,14 +32,14 @@ tools: ['shell', 'read', 'edit', 'search', 'web', 'agent', 'cognitionai/deepwiki
 
 ### Retrieval (Before Test Strategy)
 
-```
+```text
 cloudmcp-manager/memory-search_nodes with query="qa [feature]"
 cloudmcp-manager/memory-open_nodes for previous test patterns
 ```
 
 ### Storage (After Verification)
 
-```
+```text
 cloudmcp-manager/memory-create_entities for new test patterns
 cloudmcp-manager/memory-add_observations for test results
 ```

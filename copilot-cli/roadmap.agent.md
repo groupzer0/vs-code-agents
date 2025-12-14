@@ -35,14 +35,14 @@ Challenge strategic drift, take responsibility for product outcomes, and ensure 
 
 ### Retrieval (Before Major Decisions)
 
-```
+```text
 cloudmcp-manager/memory-search_nodes with query="roadmap [topic]"
 cloudmcp-manager/memory-open_nodes for strategic context
 ```
 
 ### Storage (At Milestones)
 
-```
+```text
 cloudmcp-manager/memory-create_entities for new epics
 cloudmcp-manager/memory-add_observations for priority updates
 cloudmcp-manager/memory-create_relations to link epics
@@ -93,14 +93,17 @@ graph TD
 ```
 
 ## Success Metrics
+
 | Metric | Target | Current |
 |--------|--------|---------|
 | [Metric] | [Target] | [Current] |
 
 ## Changelog
+
 | Date | Change | Rationale |
 |------|--------|-----------|
 | [Date] | [What changed] | [Why] |
+
 ```
 
 ## Epic Definition Format

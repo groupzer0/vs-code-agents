@@ -32,14 +32,14 @@ Maintain system architecture as single source of truth. Conduct reviews across t
 
 ### Retrieval (Before Reviews)
 
-```
+```text
 cloudmcp-manager/memory-search_nodes with query="architecture [topic]"
 cloudmcp-manager/memory-open_nodes for specific decisions
 ```
 
 ### Storage (After Decisions)
 
-```
+```text
 cloudmcp-manager/memory-create_entities for new ADRs
 cloudmcp-manager/memory-add_observations for decision updates
 cloudmcp-manager/memory-create_relations to link components

@@ -26,7 +26,7 @@ Retrieve context at turn start, maintain internal notes during work, and store p
 
 Search the knowledge graph for relevant context.
 
-```
+```text
 Query: "[topic] [context]"
 Returns: Matching entities with observations
 ```
@@ -35,7 +35,7 @@ Returns: Matching entities with observations
 
 Retrieve specific entities by name.
 
-```
+```text
 Names: ["entity1", "entity2"]
 Returns: Full entity details with observations
 ```
@@ -122,6 +122,7 @@ Read entire knowledge graph (use sparingly).
 **Summary Format (300-1500 characters):**
 
 Focus on:
+
 - Reasoning and decisions made
 - Tradeoffs considered
 - Rejected alternatives and why
@@ -130,7 +131,7 @@ Focus on:
 
 **Example Summary:**
 
-```
+```text
 Decision: Use Strategy pattern for tax calculation.
 Reasoning: Need to support US, CA, EU rules with different logic.
 Tradeoffs: Factory+Strategy adds indirection but isolates variation.
@@ -182,11 +183,12 @@ When observations contradict:
 
 Remove stale information periodically:
 
-```
+```text
 cloudmcp-manager/memory-delete_observations
 ```
 
 Delete when:
+
 - Information confirmed incorrect
 - Entity no longer relevant
 - Superseded by newer approach
@@ -205,7 +207,7 @@ When agents apply learned strategies, they should cite skills for transparent re
 
 ### Retrieval Before Action
 
-```
+```text
 cloudmcp-manager/memory-search_nodes
 Query: "skill [task context keywords]"
 ```

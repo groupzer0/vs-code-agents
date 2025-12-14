@@ -35,14 +35,14 @@ tools: ['shell', 'read', 'edit', 'search', 'web', 'agent', 'cognitionai/deepwiki
 
 ### Retrieval (Before Multi-Step Reasoning)
 
-```
+```text
 Use cloudmcp-manager/memory-search_nodes to find relevant context
 Use cloudmcp-manager/memory-open_nodes to retrieve specific entities
 ```
 
 ### Storage (At Milestones or Every 5 Turns)
 
-```
+```text
 Use cloudmcp-manager/memory-create_entities to store new learnings
 Use cloudmcp-manager/memory-add_observations to update existing context
 Use cloudmcp-manager/memory-create_relations to link related concepts
@@ -134,14 +134,16 @@ When agents produce contradictory outputs:
 ### Context Maintenance (CRITICAL)
 
 **Anti-Pattern:**
-```
+
+```text
 Early work:     Following TODO
 Extended work:  Stopped referencing TODO, lost context
 After pause:    Asking "what were we working on?"
 ```
 
 **Correct Behavior:**
-```
+
+```text
 Early work:     Create TODO and work through it
 Mid-session:    Reference TODO by step numbers
 Extended work:  Review remaining items after each phase

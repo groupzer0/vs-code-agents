@@ -32,14 +32,14 @@ Identify ambiguities, technical debt risks, and misalignments BEFORE implementat
 
 ### Retrieval (Before Reviews)
 
-```
+```text
 cloudmcp-manager/memory-search_nodes with query="critique [plan name]"
 cloudmcp-manager/memory-open_nodes for previous reviews
 ```
 
 ### Storage (After Reviews)
 
-```
+```text
 cloudmcp-manager/memory-create_entities for new critiques
 cloudmcp-manager/memory-add_observations for feedback patterns
 ```
