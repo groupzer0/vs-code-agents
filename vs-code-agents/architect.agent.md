@@ -32,18 +32,18 @@ Maintain system architecture as single source of truth. Conduct reviews across t
 
 ### Retrieval (Before Reviews)
 
-```
+```text
 cloudmcp-manager/memory-search_nodes with query="architecture [topic]"
 cloudmcp-manager/memory-open_nodes for specific decisions
-```
+```text
 
 ### Storage (After Decisions)
 
-```
+```text
 cloudmcp-manager/memory-create_entities for new ADRs
 cloudmcp-manager/memory-add_observations for decision updates
 cloudmcp-manager/memory-create_relations to link components
-```
+```text
 
 ## Architecture Review Process
 
@@ -54,7 +54,7 @@ cloudmcp-manager/memory-create_relations to link components
 - [ ] Identify architectural risks
 - [ ] Check alignment with established patterns
 - [ ] Flag technical debt implications
-```
+```text
 
 ### Plan/Analysis Review
 
@@ -63,7 +63,7 @@ cloudmcp-manager/memory-create_relations to link components
 - [ ] Verify design principles adherence
 - [ ] Block violations (SOLID, DRY, separation of concerns)
 - [ ] Validate integration approach
-```
+```text
 
 ### Post-Implementation Review
 
@@ -72,7 +72,7 @@ cloudmcp-manager/memory-create_relations to link components
 - [ ] Measure technical debt accumulation
 - [ ] Update architecture diagram if needed
 - [ ] Record lessons learned
-```
+```text
 
 ## ADR Format
 
@@ -110,7 +110,7 @@ Save to: `.agents/architecture/ADR-NNN-[decision-name].md`
 
 ## References
 - [Related documents, PRs, issues]
-```
+```text
 
 ## Handoff Options
 

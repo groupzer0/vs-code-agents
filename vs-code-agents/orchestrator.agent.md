@@ -35,18 +35,18 @@ model: Claude Opus 4.5 (anthropic)
 
 ### Retrieval (Before Multi-Step Reasoning)
 
-```
+```text
 Use cloudmcp-manager/memory-search_nodes to find relevant context
 Use cloudmcp-manager/memory-open_nodes to retrieve specific entities
-```
+```text
 
 ### Storage (At Milestones or Every 5 Turns)
 
-```
+```text
 Use cloudmcp-manager/memory-create_entities to store new learnings
 Use cloudmcp-manager/memory-add_observations to update existing context
 Use cloudmcp-manager/memory-create_relations to link related concepts
-```
+```text
 
 **What to Store:**
 
@@ -65,7 +65,7 @@ Use cloudmcp-manager/memory-create_relations to link related concepts
 - [ ] Identify project type and existing tools
 - [ ] Check for similar past orchestrations in memory
 - [ ] Plan agent routing sequence
-```
+```text
 
 ### Phase 2: Planning & Immediate Action
 
@@ -74,7 +74,7 @@ Use cloudmcp-manager/memory-create_relations to link related concepts
 - [ ] Create TODO list for agent routing
 - [ ] IMMEDIATELY start delegating - don't wait for perfect planning
 - [ ] Route first sub-task to appropriate agent
-```
+```text
 
 ### Phase 3: Autonomous Execution
 
@@ -84,7 +84,7 @@ Use cloudmcp-manager/memory-create_relations to link related concepts
 - [ ] Debug and resolve conflicts as they arise
 - [ ] Store progress summaries using cloudmcp-manager/memory-add_observations
 - [ ] Continue until ALL requirements satisfied
-```
+```text
 
 ## Agent Capability Matrix
 
@@ -134,19 +134,21 @@ When agents produce contradictory outputs:
 ### Context Maintenance (CRITICAL)
 
 **Anti-Pattern:**
-```
+
+```text
 Early work:     Following TODO
 Extended work:  Stopped referencing TODO, lost context
 After pause:    Asking "what were we working on?"
-```
+```text
 
 **Correct Behavior:**
-```
+
+```text
 Early work:     Create TODO and work through it
 Mid-session:    Reference TODO by step numbers
 Extended work:  Review remaining items after each phase
 After pause:    Review TODO list to restore context
-```
+```text
 
 ### Segue Management
 
@@ -160,7 +162,7 @@ When encountering issues requiring investigation:
   - [ ] SEGUE 2.3: Validate resolution
   - [ ] RESUME: Complete Step 2
 - [ ] Step 3: Future task
-```
+```text
 
 ## Output Directory
 
@@ -184,7 +186,7 @@ When an agent chain fails:
 - [ ] DOCUMENT: Record failure in memory using cloudmcp-manager/memory-add_observations
 - [ ] RETRY: Execute with new agent or refined prompt
 - [ ] CONTINUE: Resume original orchestration
-```
+```text
 
 ## Completion Criteria
 
@@ -215,4 +217,4 @@ Mark orchestration complete only when:
 
 ## Open Items
 [Anything incomplete]
-```
+```text

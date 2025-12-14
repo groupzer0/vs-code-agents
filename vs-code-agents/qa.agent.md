@@ -32,17 +32,17 @@ model: Claude Opus 4.5 (anthropic)
 
 ### Retrieval (Before Test Strategy)
 
-```
+```text
 cloudmcp-manager/memory-search_nodes with query="qa [feature]"
 cloudmcp-manager/memory-open_nodes for previous test patterns
-```
+```text
 
 ### Storage (After Verification)
 
-```
+```text
 cloudmcp-manager/memory-create_entities for new test patterns
 cloudmcp-manager/memory-add_observations for test results
-```
+```text
 
 ## Two-Phase Process
 
@@ -54,7 +54,7 @@ cloudmcp-manager/memory-add_observations for test results
 - [ ] Design test scenarios from user perspective
 - [ ] Create test strategy document
 - [ ] Call out infrastructure gaps: "TESTING INFRASTRUCTURE NEEDED: [what]"
-```
+```text
 
 ### Phase 2: Post-Implementation (Verification)
 
@@ -63,7 +63,7 @@ cloudmcp-manager/memory-add_observations for test results
 - [ ] Validate coverage against plan acceptance criteria
 - [ ] Identify any gaps
 - [ ] Produce final status: "QA Complete" or "QA Failed"
-```
+```text
 
 ## Infrastructure Requirements
 
@@ -86,7 +86,7 @@ Identify upfront and flag missing pieces:
 
 ### Gaps Identified
 TESTING INFRASTRUCTURE NEEDED: [specific need]
-```
+```text
 
 ## Test Strategy Document Format
 
@@ -131,7 +131,7 @@ Save to: `.agents/qa/NNN-[feature]-test-strategy.md`
 1. Unit tests (isolated)
 2. Integration tests (connected)
 3. Regression suite
-```
+```text
 
 ## Test Report Format
 
@@ -171,7 +171,7 @@ Save to: `.agents/qa/NNN-[feature]-test-report.md`
 
 ## Recommendations
 - [Recommendation for improvement]
-```
+```text
 
 ## Handoff Options
 

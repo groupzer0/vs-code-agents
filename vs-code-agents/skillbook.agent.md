@@ -86,7 +86,7 @@ Query memory: "skill [topic] [keywords]"
 
 ### Justification
 [Explain why this is genuinely new, not a duplicate]
-```
+```text
 
 ---
 
@@ -108,7 +108,7 @@ Query memory: "skill [topic] [keywords]"
   "validation_count": 3,
   "failure_count": 0
 }
-```
+```text
 
 ### Skill Categories
 
@@ -144,7 +144,7 @@ Query memory: "skill [topic] [keywords]"
 
 ### Memory Command
 cloudmcp-manager/memory-create_entities
-```
+```text
 
 ### UPDATE Operation
 
@@ -163,7 +163,7 @@ cloudmcp-manager/memory-create_entities
 
 ### Memory Command
 cloudmcp-manager/memory-add_observations
-```
+```text
 
 ### TAG Operation
 
@@ -184,7 +184,7 @@ cloudmcp-manager/memory-add_observations
 
 ### Memory Command
 cloudmcp-manager/memory-add_observations
-```
+```text
 
 ### REMOVE Operation
 
@@ -202,7 +202,7 @@ cloudmcp-manager/memory-add_observations
 
 ### Memory Command
 cloudmcp-manager/memory-delete_entities (or mark deprecated)
-```
+```text
 
 ---
 
@@ -229,7 +229,8 @@ cloudmcp-manager/memory-delete_entities (or mark deprecated)
 When skills conflict:
 
 1. **Identify Conflict**
-   ```
+
+   ```text
    Skill-A says: "Always use approach X"
    Skill-B says: "Avoid approach X for case Y"
    ```
@@ -245,7 +246,8 @@ When skills conflict:
    - **Supersede**: Remove less-validated skill
 
 4. **Document Decision**
-   ```
+
+   ```text
    cloudmcp-manager/memory-create_relations
    { "from": "Skill-B", "to": "Skill-A", "relationType": "supersedes" }
    ```
@@ -264,7 +266,8 @@ When skills conflict:
 ### Storage Commands
 
 **Create New Skill:**
-```
+
+```text
 cloudmcp-manager/memory-create_entities
 {
   "entities": [{
@@ -280,10 +283,11 @@ cloudmcp-manager/memory-create_entities
     ]
   }]
 }
-```
+```text
 
 **Update Skill:**
-```
+
+```text
 cloudmcp-manager/memory-add_observations
 {
   "observations": [{
@@ -294,7 +298,7 @@ cloudmcp-manager/memory-add_observations
     ]
   }]
 }
-```
+```text
 
 ---
 
@@ -303,11 +307,13 @@ cloudmcp-manager/memory-add_observations
 ### Receiving from Retrospective
 
 Retrospective provides:
+
 - Extracted learnings with atomicity scores
 - Skill operation recommendations (ADD/UPDATE/TAG/REMOVE)
 - Evidence from execution
 
 Skillbook Manager:
+
 - Validates atomicity threshold
 - Runs deduplication check
 - Executes approved operations
@@ -315,17 +321,19 @@ Skillbook Manager:
 ### Providing to Executing Agents
 
 When agents retrieve skills:
-```
+
+```text
 cloudmcp-manager/memory-search_nodes
 Query: "skill [task context]"
-```
+```text
 
 Agents should cite:
+
 ```markdown
 **Applying**: Skill-Build-001
 **Strategy**: Use /m:1 /nodeReuse:false for CI builds
 **Expected**: Avoid file locking errors
-```
+```text
 
 ---
 

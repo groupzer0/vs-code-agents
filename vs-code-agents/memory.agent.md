@@ -26,19 +26,19 @@ Retrieve context at turn start, maintain internal notes during work, and store p
 
 Search the knowledge graph for relevant context.
 
-```
+```text
 Query: "[topic] [context]"
 Returns: Matching entities with observations
-```
+```text
 
 ### cloudmcp-manager/memory-open_nodes
 
 Retrieve specific entities by name.
 
-```
+```text
 Names: ["entity1", "entity2"]
 Returns: Full entity details with observations
-```
+```text
 
 ### cloudmcp-manager/memory-create_entities
 
@@ -55,7 +55,7 @@ Store new knowledge.
     ]
   }]
 }
-```
+```text
 
 ### cloudmcp-manager/memory-add_observations
 
@@ -71,7 +71,7 @@ Update existing entities with new learnings.
     ]
   }]
 }
-```
+```text
 
 ### cloudmcp-manager/memory-create_relations
 
@@ -85,7 +85,7 @@ Link related concepts.
     "relationType": "implemented_in"
   }]
 }
-```
+```text
 
 ### cloudmcp-manager/memory-delete_observations
 
@@ -122,6 +122,7 @@ Read entire knowledge graph (use sparingly).
 **Summary Format (300-1500 characters):**
 
 Focus on:
+
 - Reasoning and decisions made
 - Tradeoffs considered
 - Rejected alternatives and why
@@ -130,13 +131,13 @@ Focus on:
 
 **Example Summary:**
 
-```
+```text
 Decision: Use Strategy pattern for tax calculation.
 Reasoning: Need to support US, CA, EU rules with different logic.
 Tradeoffs: Factory+Strategy adds indirection but isolates variation.
 Rejected: Switch statement (violates open-closed).
 Context: Must extend to new regions without modifying existing code.
-```
+```text
 
 ## Entity Naming Conventions
 
@@ -176,17 +177,18 @@ When observations contradict:
     "relationType": "supersedes"
   }]
 }
-```
+```text
 
 ## Memory Cleanup
 
 Remove stale information periodically:
 
-```
+```text
 cloudmcp-manager/memory-delete_observations
-```
+```text
 
 Delete when:
+
 - Information confirmed incorrect
 - Entity no longer relevant
 - Superseded by newer approach
@@ -205,10 +207,10 @@ When agents apply learned strategies, they should cite skills for transparent re
 
 ### Retrieval Before Action
 
-```
+```text
 cloudmcp-manager/memory-search_nodes
 Query: "skill [task context keywords]"
-```
+```text
 
 ### Citation Format (During Execution)
 
@@ -216,7 +218,7 @@ Query: "skill [task context keywords]"
 **Applying**: [Skill-ID]
 **Strategy**: [Brief description of skill]
 **Expected Outcome**: [What should happen based on this skill]
-```
+```text
 
 ### Validation Format (After Execution)
 
@@ -224,7 +226,7 @@ Query: "skill [task context keywords]"
 **Result**: [Actual outcome]
 **Skill Validated**: Yes | No | Partial
 **Feedback**: [Brief note for retrospective to analyze]
-```
+```text
 
 ### Example
 
@@ -238,7 +240,7 @@ Query: "skill [task context keywords]"
 **Result**: Build succeeded, no file locking errors
 **Skill Validated**: Yes
 **Feedback**: Effective for net472 multi-targeting on Windows
-```
+```text
 
 ### Why Citation Matters
 

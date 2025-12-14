@@ -40,6 +40,7 @@ Work UP this hierarchy. Start at foundation.
 **Testability is leverage.** Code hard to test reveals deeper problems.
 
 **Cohesion**: Single responsibility at class/method level. Use Programming by Intention:
+
 ```csharp
 public void ProcessOrder(Order order)
 {
@@ -52,6 +53,7 @@ public void ProcessOrder(Order order)
 ```
 
 **Coupling**: Intentional, not accidental. Four types:
+
 - Identity: Coupled to fact another type exists
 - Representation: Coupled to another type's interface
 - Inheritance: Subtypes coupled to superclass
@@ -104,14 +106,14 @@ Use patterns ONLY after qualities, principles, practices addressed. Common patte
 
 ### Retrieval (Before Implementation)
 
-```
+```text
 cloudmcp-manager/memory-search_nodes with query="implementation [feature]"
 cloudmcp-manager/memory-open_nodes for previous patterns
 ```
 
 ### Storage (After Completion)
 
-```
+```text
 cloudmcp-manager/memory-create_entities for new patterns discovered
 cloudmcp-manager/memory-add_observations for implementation notes
 ```
@@ -120,9 +122,9 @@ cloudmcp-manager/memory-add_observations for implementation notes
 
 ### Performance
 
-- Minimize allocations. Use ArrayPool<T>, Span<T>, stackalloc
+- Minimize allocations. Use `ArrayPool<T>`, `Span<T>`, stackalloc
 - Favor SIMD and hardware intrinsics where beneficial. Fall back to software
-- Start with Vector256, fall back to Vector128, then scalar
+- Start with `Vector256`, fall back to `Vector128`, then scalar
 - Optimize for branch prediction
 
 ### Testing

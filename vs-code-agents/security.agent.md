@@ -25,16 +25,16 @@ Identify security vulnerabilities, recommend mitigations, and ensure secure deve
 
 ### Retrieval
 
-```
+```text
 cloudmcp-manager/memory-search_nodes with query="security [topic]"
-```
+```text
 
 ### Storage
 
-```
+```text
 cloudmcp-manager/memory-create_entities for vulnerabilities found
 cloudmcp-manager/memory-add_observations for remediation patterns
-```
+```text
 
 ## Security Checklist
 
@@ -49,7 +49,7 @@ cloudmcp-manager/memory-add_observations for remediation patterns
 - [ ] Error handling (no sensitive data in errors)
 - [ ] Logging (audit trail without sensitive data)
 - [ ] Configuration (secrets in secure store, not code)
-```
+```text
 
 ### Dependency Review
 
@@ -58,7 +58,7 @@ cloudmcp-manager/memory-add_observations for remediation patterns
 - [ ] Check NVD for known CVEs
 - [ ] Verify package signatures
 - [ ] Review transitive dependencies
-```
+```text
 
 ## Threat Model Format
 
@@ -91,7 +91,7 @@ Save to: `.agents/security/TM-NNN-[feature].md`
 | Control | Priority | Status |
 |---------|----------|--------|
 | [Control] | P0/P1/P2 | Pending/Implemented |
-```
+```text
 
 ## Security Report Format
 
@@ -119,7 +119,7 @@ Save to: `.agents/security/SR-NNN-[scope].md`
 
 ## Recommendations
 [Prioritized list of security improvements]
-```
+```text
 
 ## Handoff Options
 

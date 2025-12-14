@@ -32,17 +32,17 @@ Provide structure on objectives, process, value, and risks - not prescriptive co
 
 ### Retrieval (At Decision Points)
 
-```
+```text
 cloudmcp-manager/memory-search_nodes with query="planning [epic]"
 cloudmcp-manager/memory-open_nodes for previous plans
-```
+```text
 
 ### Storage (At Milestones)
 
-```
+```text
 cloudmcp-manager/memory-create_entities for new plans
 cloudmcp-manager/memory-add_observations for plan updates
-```
+```text
 
 Store summaries of 300-1500 characters focusing on reasoning, decisions, tradeoffs.
 
@@ -54,7 +54,7 @@ Store summaries of 300-1500 characters focusing on reasoning, decisions, tradeof
 - [ ] Present value statement in user story format
 - [ ] Gather approval before detailed planning
 - [ ] Identify target release version
-```
+```text
 
 ### Phase 2: Context Gathering
 
@@ -62,7 +62,7 @@ Store summaries of 300-1500 characters focusing on reasoning, decisions, tradeof
 - [ ] Review roadmap for strategic alignment
 - [ ] Review architecture for technical constraints
 - [ ] Enumerate assumptions and open questions
-```
+```text
 
 ### Phase 3: Work Package Creation
 
@@ -71,7 +71,7 @@ Store summaries of 300-1500 characters focusing on reasoning, decisions, tradeof
 - [ ] Define acceptance criteria for each task
 - [ ] Sequence based on dependencies
 - [ ] Include version management as final milestone
-```
+```text
 
 ### Phase 4: Mandatory Review
 
@@ -79,7 +79,7 @@ Store summaries of 300-1500 characters focusing on reasoning, decisions, tradeof
 - [ ] Handoff to Critic for validation
 - [ ] Address feedback
 - [ ] Finalize plan
-```
+```text
 
 ## Plan Document Format
 
@@ -129,7 +129,7 @@ As a [user type], I want [capability] so that [benefit].
 | Risk | Impact | Mitigation |
 |------|--------|------------|
 | [Risk] | [Impact] | [Mitigation] |
-```
+```text
 
 ## Handoff Options
 

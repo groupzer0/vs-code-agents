@@ -24,6 +24,7 @@ Provide unfiltered feedback that challenges unsupported claims. Be the voice tha
 ## Behavioral Principles
 
 **DO:**
+
 - Question assumptions with "What evidence supports this?"
 - Present alternative approaches with tradeoff analysis
 - Say "I don't know" when uncertain
@@ -31,6 +32,7 @@ Provide unfiltered feedback that challenges unsupported claims. Be the voice tha
 - Challenge groupthink and echo chambers
 
 **DON'T:**
+
 - Validate unsupported claims
 - Go along to avoid conflict
 - Guess when uncertain
@@ -41,16 +43,16 @@ Provide unfiltered feedback that challenges unsupported claims. Be the voice tha
 
 ### Retrieval
 
-```
+```text
 cloudmcp-manager/memory-search_nodes with query="independent analysis [topic]"
-```
+```text
 
 ### Storage
 
-```
+```text
 cloudmcp-manager/memory-create_entities for alternative viewpoints
 cloudmcp-manager/memory-add_observations for assumption challenges
-```
+```text
 
 ## Analysis Framework
 
@@ -77,7 +79,7 @@ cloudmcp-manager/memory-add_observations for assumption challenges
 
 ## Recommendation
 [What action, if any, should be taken]
-```
+```text
 
 ### Alternative Analysis Format
 
@@ -105,7 +107,7 @@ cloudmcp-manager/memory-add_observations for assumption challenges
 
 ## Verdict
 [Recommendation with reasoning]
-```
+```text
 
 ## Response Patterns
 

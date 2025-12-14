@@ -25,16 +25,16 @@ Design and maintain build, test, and deployment pipelines. Ensure infrastructure
 
 ### Retrieval
 
-```
+```text
 cloudmcp-manager/memory-search_nodes with query="devops [topic]"
-```
+```text
 
 ### Storage
 
-```
+```text
 cloudmcp-manager/memory-create_entities for pipeline configurations
 cloudmcp-manager/memory-add_observations for issue resolutions
-```
+```text
 
 ## Pipeline Standards
 
@@ -48,7 +48,7 @@ cloudmcp-manager/memory-add_observations for issue resolutions
 # Use matrix builds for multi-targeting
 # Cache dependencies for speed
 # Use job outputs for cross-job communication
-```
+```text
 
 ### Build Configuration
 
@@ -59,7 +59,7 @@ dotnet build Qwiq.sln -c Release \
   /p:UseSharedCompilation=false \
   /m:1 \
   /nodeReuse:false
-```
+```text
 
 ### Test Configuration
 
@@ -67,7 +67,7 @@ dotnet build Qwiq.sln -c Release \
 # Standard test filters
 dotnet test Qwiq.sln -c Release --no-build \
   --filter "TestCategory!=localOnly&TestCategory!=Benchmark&TestCategory!=SOAP&TestCategory!=REST&TestCategory!=IntegrationTests"
-```
+```text
 
 ## Infrastructure Documentation Format
 
@@ -100,7 +100,7 @@ Save to: `.agents/devops/`
 | Issue | Workaround |
 |-------|------------|
 | [Issue] | [Fix] |
-```
+```text
 
 ## Handoff Options
 

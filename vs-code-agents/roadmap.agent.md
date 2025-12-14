@@ -35,18 +35,18 @@ Challenge strategic drift, take responsibility for product outcomes, and ensure 
 
 ### Retrieval (Before Major Decisions)
 
-```
+```text
 cloudmcp-manager/memory-search_nodes with query="roadmap [topic]"
 cloudmcp-manager/memory-open_nodes for strategic context
-```
+```text
 
 ### Storage (At Milestones)
 
-```
+```text
 cloudmcp-manager/memory-create_entities for new epics
 cloudmcp-manager/memory-add_observations for priority updates
 cloudmcp-manager/memory-create_relations to link epics
-```
+```text
 
 Store summaries of 300-1500 characters focusing on strategic reasoning.
 
@@ -90,18 +90,21 @@ Save to: `.agents/roadmap/product-roadmap.md` (single source of truth)
 graph TD
     A[Epic A] --> B[Epic B]
     B --> C[Epic C]
-```
+```text
 
 ## Success Metrics
+
 | Metric | Target | Current |
 |--------|--------|---------|
 | [Metric] | [Target] | [Current] |
 
 ## Changelog
+
 | Date | Change | Rationale |
 |------|--------|-----------|
 | [Date] | [What changed] | [Why] |
-```
+
+```text
 
 ## Epic Definition Format
 
@@ -124,7 +127,7 @@ P[0/1/2] - [Rationale]
 
 ### Target Release
 [Version]
-```
+```text
 
 ## Handoff Options
 
@@ -153,7 +156,7 @@ When epic is defined:
 - [ ] Check strategic drift
 - [ ] Update status and metrics
 - [ ] Document changes in changelog
-```
+```text
 
 ## Execution Mindset
 
