@@ -10,37 +10,40 @@ This repository provides a coordinated multi-agent system for software developme
 
 | Agent | Purpose | When to Use |
 |-------|---------|-------------|
-| **csharp-expert** | Production code, .NET patterns | Writing/reviewing C# code |
-| **csharp-pod** | Design patterns, architecture | Before writing code |
-| **analyst** | Research, root cause analysis | Investigating issues |
+| **orchestrator** | Task coordination | Complex multi-step tasks |
+| **implementer** | Production code, .NET patterns | Writing/reviewing C# code |
+| **analyst** | Research, root cause analysis, feature review | Investigating issues, evaluating requests |
 | **architect** | ADRs, design governance | Technical decisions |
 | **planner** | Milestones, work packages | Breaking down epics |
 | **critic** | Plan validation | Before implementation |
 | **qa** | Test strategy, verification | After implementation |
-| **create-explainer** | PRDs, feature docs | Documenting features |
-| **generate-tasks** | Atomic task breakdown | After PRD created |
-| **feature-request-review** | Review feature requests | Evaluating proposals |
+| **explainer** | PRDs, feature docs | Documenting features |
+| **task-generator** | Atomic task breakdown | After PRD created |
 | **high-level-advisor** | Strategic decisions | Major direction choices |
 | **independent-thinker** | Challenge assumptions | Getting unfiltered feedback |
 | **memory** | Cross-session context | Retrieving/storing knowledge |
 | **skillbook** | Skill management | Managing learned strategies |
 | **retrospective** | Learning extraction | After task completion |
+| **devops** | CI/CD pipelines | Build automation, deployment |
+| **roadmap** | Strategic vision | Epic definition, prioritization |
+| **security** | Vulnerability assessment | Threat modeling, secure coding |
+| **pr-comment-responder** | PR review handler | Addressing bot/human review comments |
 
 ## Standard Workflows
 
 **Feature Development:**
 ```
-analyst → architect → planner → critic → csharp-expert → qa → retrospective
+analyst → architect → planner → critic → implementer → qa → retrospective
 ```
 
 **Quick Fix:**
 ```
-csharp-expert → qa
+implementer → qa
 ```
 
 **Strategic Decision:**
 ```
-independent-thinker → high-level-advisor → generate-tasks
+independent-thinker → high-level-advisor → task-generator
 ```
 
 ## Invocation Examples
@@ -50,17 +53,17 @@ independent-thinker → high-level-advisor → generate-tasks
 Task(subagent_type="analyst", prompt="Investigate why X fails")
 
 # Design review before coding
-Task(subagent_type="csharp-pod", prompt="Review design for feature X")
+Task(subagent_type="architect", prompt="Review design for feature X")
 
 # Implementation
-Task(subagent_type="csharp-expert", prompt="Implement feature X per plan")
+Task(subagent_type="implementer", prompt="Implement feature X per plan")
 
 # Plan validation (required before implementation)
 Task(subagent_type="critic", prompt="Validate plan at .agents/planning/...")
 
 # Code review after writing
-Task(subagent_type="csharp-pod", prompt="Review code quality")
-Task(subagent_type="csharp-expert", prompt="Review implementation")
+Task(subagent_type="architect", prompt="Review code quality")
+Task(subagent_type="implementer", prompt="Review implementation")
 
 # Extract learnings
 Task(subagent_type="retrospective", prompt="Analyze what we learned")

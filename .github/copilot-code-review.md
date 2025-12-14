@@ -47,7 +47,7 @@ The agent's role, purpose, and core mission should be identical or semantically 
 The numbered list of responsibilities should match.
 
 ### 3. Software Hierarchy of Needs
-For implementer/csharp-expert agents, the hierarchy (Qualities → Principles → Practices → Wisdom → Patterns) must be identical.
+For implementer agents, the hierarchy (Qualities → Principles → Practices → Wisdom → Patterns) must be identical.
 
 ### 4. Handoff Protocol
 Agent handoff targets and conditions should match:
@@ -92,28 +92,28 @@ When an agent file is modified, verify:
 
 ## Agent Mapping
 
+All agents now have 1:1 parity across all three platforms:
+
 | VS Code Agent | Copilot CLI Agent | Claude Agent |
 |---------------|-------------------|--------------|
 | `analyst.agent.md` | `analyst.agent.md` | `analyst.md` |
 | `architect.agent.md` | `architect.agent.md` | `architect.md` |
 | `critic.agent.md` | `critic.agent.md` | `critic.md` |
-| `devops.agent.md` | `devops.agent.md` | *(no equivalent)* |
-| `explainer.agent.md` | `explainer.agent.md` | `create-explainer.md` |
+| `devops.agent.md` | `devops.agent.md` | `devops.md` |
+| `explainer.agent.md` | `explainer.agent.md` | `explainer.md` |
 | `high-level-advisor.agent.md` | `high-level-advisor.agent.md` | `high-level-advisor.md` |
-| `implementer.agent.md` | `implementer.agent.md` | `csharp-expert.md` |
+| `implementer.agent.md` | `implementer.agent.md` | `implementer.md` |
 | `independent-thinker.agent.md` | `independent-thinker.agent.md` | `independent-thinker.md` |
 | `memory.agent.md` | `memory.agent.md` | `memory.md` |
-| `orchestrator.agent.md` | `orchestrator.agent.md` | *(built-in)* |
+| `orchestrator.agent.md` | `orchestrator.agent.md` | `orchestrator.md` |
 | `planner.agent.md` | `planner.agent.md` | `planner.md` |
+| `pr-comment-responder.agent.md` | `pr-comment-responder.agent.md` | `pr-comment-responder.md` |
 | `qa.agent.md` | `qa.agent.md` | `qa.md` |
 | `retrospective.agent.md` | `retrospective.agent.md` | `retrospective.md` |
-| `roadmap.agent.md` | `roadmap.agent.md` | *(no equivalent)* |
-| `security.agent.md` | `security.agent.md` | *(no equivalent)* |
+| `roadmap.agent.md` | `roadmap.agent.md` | `roadmap.md` |
+| `security.agent.md` | `security.agent.md` | `security.md` |
 | `skillbook.agent.md` | `skillbook.agent.md` | `skillbook.md` |
-| `task-generator.agent.md` | `task-generator.agent.md` | `generate-tasks.md` |
-| `pr-comment-responder.agent.md` | `pr-comment-responder.agent.md` | `pr-comment-responder.md` |
-| *(no equivalent)* | *(no equivalent)* | `csharp-pod.md` |
-| *(no equivalent)* | *(no equivalent)* | `feature-request-review.md` |
+| `task-generator.agent.md` | `task-generator.agent.md` | `task-generator.md` |
 
 ## Flagging Drift
 

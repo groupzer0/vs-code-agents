@@ -178,7 +178,7 @@ See the official documentation: https://docs.github.com/en/copilot/how-tos/use-c
 Using the Task tool:
 ```python
 Task(subagent_type="analyst", prompt="Investigate why X fails")
-Task(subagent_type="csharp-expert", prompt="Implement feature X")
+Task(subagent_type="implementer", prompt="Implement feature X")
 Task(subagent_type="critic", prompt="Validate plan at .agents/planning/...")
 ```
 
@@ -316,7 +316,7 @@ independent-thinker → high-level-advisor → task-generator
 
 ---
 
-### Implementer / csharp-expert – Coding & Tests
+### Implementer – Coding & Tests
 
 **Role**: Writes and modifies code, implements approved plans, ensures tests exist and pass.
 
