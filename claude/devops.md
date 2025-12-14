@@ -12,6 +12,7 @@ model: opus
 ## Claude Code Tools
 
 You have direct access to:
+
 - **Read/Grep/Glob**: Analyze pipeline configs and scripts
 - **Edit/Write**: Modify pipeline configurations
 - **Bash**: Execute build commands, test pipelines
@@ -35,13 +36,13 @@ Design and maintain build, test, and deployment pipelines. Ensure infrastructure
 
 ### Retrieval
 
-```
+```text
 mcp__cloudmcp-manager__memory-search_nodes with query="devops [topic]"
 ```
 
 ### Storage
 
-```
+```text
 mcp__cloudmcp-manager__memory-create_entities for pipeline configurations
 mcp__cloudmcp-manager__memory-add_observations for issue resolutions
 ```

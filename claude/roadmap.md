@@ -12,6 +12,7 @@ model: opus
 ## Claude Code Tools
 
 You have direct access to:
+
 - **Read/Grep/Glob**: Review existing documentation and code
 - **Edit/Write**: Update roadmap documents
 - **WebSearch/WebFetch**: Research market trends, competitor analysis
@@ -44,14 +45,14 @@ Challenge strategic drift, take responsibility for product outcomes, and ensure 
 
 ### Retrieval (Before Major Decisions)
 
-```
+```text
 mcp__cloudmcp-manager__memory-search_nodes with query="roadmap [topic]"
 mcp__cloudmcp-manager__memory-open_nodes for strategic context
 ```
 
 ### Storage (At Milestones)
 
-```
+```text
 mcp__cloudmcp-manager__memory-create_entities for new epics
 mcp__cloudmcp-manager__memory-add_observations for priority updates
 mcp__cloudmcp-manager__memory-create_relations to link epics
@@ -102,14 +103,17 @@ graph TD
 ```
 
 ## Success Metrics
+
 | Metric | Target | Current |
 |--------|--------|---------|
 | [Metric] | [Target] | [Current] |
 
 ## Changelog
+
 | Date | Change | Rationale |
 |------|--------|-----------|
 | [Date] | [What changed] | [Why] |
+
 ```
 
 ## Epic Definition Format

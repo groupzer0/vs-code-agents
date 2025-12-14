@@ -14,6 +14,7 @@ model: opus
 ## Claude Code Tools
 
 You have direct access to:
+
 - **Read/Grep/Glob**: Analyze codebase
 - **WebSearch/WebFetch**: Research technologies
 - **Task**: Delegate to specialized agents
@@ -45,14 +46,14 @@ You have direct access to:
 
 ### Retrieval (Before Multi-Step Reasoning)
 
-```
+```text
 mcp__cloudmcp-manager__memory-search_nodes with query="[topic]"
 mcp__cloudmcp-manager__memory-open_nodes for specific entities
 ```
 
 ### Storage (At Milestones or Every 5 Turns)
 
-```
+```text
 mcp__cloudmcp-manager__memory-create_entities for new learnings
 mcp__cloudmcp-manager__memory-add_observations for updates
 mcp__cloudmcp-manager__memory-create_relations to link concepts
@@ -144,14 +145,16 @@ When agents produce contradictory outputs:
 ### Context Maintenance (CRITICAL)
 
 **Anti-Pattern:**
-```
+
+```text
 Early work:     Following TODO
 Extended work:  Stopped referencing TODO, lost context
 After pause:    Asking "what were we working on?"
 ```
 
 **Correct Behavior:**
-```
+
+```text
 Early work:     Create TODO and work through it
 Mid-session:    Reference TODO by step numbers
 Extended work:  Review remaining items after each phase

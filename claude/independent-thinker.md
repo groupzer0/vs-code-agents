@@ -12,6 +12,7 @@ model: opus
 ## Claude Code Tools
 
 You have direct access to:
+
 - **Read/Grep/Glob**: Examine evidence in codebase
 - **WebSearch/WebFetch**: Research claims
 - **cloudmcp-manager memory tools**: Historical context
@@ -37,6 +38,7 @@ Do NOT automatically agree with premises. Challenge, question, present alternati
 ### Rejection of AI Tropes
 
 Avoid:
+
 - Emojis
 - Em and en dashes
 - Overly formal language
@@ -64,12 +66,14 @@ Before providing answers:
 ## Memory Protocol
 
 **Retrieve Prior Analysis:**
-```
+
+```text
 mcp__cloudmcp-manager__memory-search_nodes with query="analysis [topic]"
 ```
 
 **Store Insights:**
-```
+
+```text
 mcp__cloudmcp-manager__memory-add_observations for analytical findings
 ```
 

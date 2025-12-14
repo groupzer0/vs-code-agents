@@ -12,6 +12,7 @@ model: sonnet
 ## Claude Code Tools
 
 You have direct access to:
+
 - **cloudmcp-manager memory tools**: All memory operations
 - **Read/Grep**: Context search in codebase
 - **TodoWrite**: Track memory operations
@@ -23,21 +24,24 @@ Retrieve context at turn start, maintain notes during work, store progress summa
 ## Memory Tools Reference
 
 ### Search (Find Context)
-```
+
+```text
 mcp__cloudmcp-manager__memory-search_nodes
 Query: "[topic] [context keywords]"
 Returns: Matching entities with observations
 ```
 
 ### Open (Get Specific Entities)
-```
+
+```text
 mcp__cloudmcp-manager__memory-open_nodes
 Names: ["entity1", "entity2"]
 Returns: Full entity details
 ```
 
 ### Create (Store New Knowledge)
-```
+
+```json
 mcp__cloudmcp-manager__memory-create_entities
 {
   "entities": [{
@@ -49,7 +53,8 @@ mcp__cloudmcp-manager__memory-create_entities
 ```
 
 ### Update (Add to Existing)
-```
+
+```json
 mcp__cloudmcp-manager__memory-add_observations
 {
   "observations": [{
@@ -60,7 +65,8 @@ mcp__cloudmcp-manager__memory-add_observations
 ```
 
 ### Link (Create Relations)
-```
+
+```json
 mcp__cloudmcp-manager__memory-create_relations
 {
   "relations": [{
@@ -72,7 +78,8 @@ mcp__cloudmcp-manager__memory-create_relations
 ```
 
 ### Read All (Inspect Graph)
-```
+
+```text
 mcp__cloudmcp-manager__memory-read_graph
 Use sparingly - returns entire graph
 ```
@@ -105,12 +112,14 @@ Use sparingly - returns entire graph
 ## Retrieval Protocol
 
 **At Session Start:**
+
 1. Search with semantically meaningful query
 2. If initial retrieval fails, retry with broader terms
 3. Open specific nodes if names known
 4. Apply context to current work
 
 **Example Queries:**
+
 - "authentication implementation patterns"
 - "roadmap priorities current release"
 - "architecture decisions REST client"
@@ -119,12 +128,14 @@ Use sparingly - returns entire graph
 ## Storage Protocol
 
 **Store Summaries At:**
+
 - Meaningful milestones
 - Every 5 turns of extended work
 - Session end
 
 **Summary Format (300-1500 characters):**
 Focus on:
+
 - Reasoning and decisions made
 - Tradeoffs considered
 - Rejected alternatives and why
@@ -136,6 +147,7 @@ Focus on:
 When agents apply learned strategies:
 
 **During Execution:**
+
 ```markdown
 **Applying**: [Skill-ID]
 **Strategy**: [Brief description]
@@ -143,6 +155,7 @@ When agents apply learned strategies:
 ```
 
 **After Execution:**
+
 ```markdown
 **Result**: [Actual outcome]
 **Skill Validated**: Yes | No | Partial
@@ -152,6 +165,7 @@ When agents apply learned strategies:
 ## Conflict Resolution
 
 When observations contradict:
+
 1. Prefer most recent observation
 2. Create relation with type `supersedes`
 3. Mark for review with `[REVIEW]` prefix if uncertain

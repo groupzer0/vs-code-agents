@@ -12,6 +12,7 @@ model: opus
 ## Claude Code Tools
 
 You have direct access to:
+
 - **Read**: PRDs and existing code
 - **Grep/Glob**: Find relevant files
 - **TodoWrite**: Track generation progress
@@ -102,18 +103,21 @@ TASK-001 → TASK-002 → TASK-003
 ## Memory Protocol
 
 **Retrieve Patterns:**
-```
+
+```text
 mcp__cloudmcp-manager__memory-search_nodes with query="task breakdown [feature type]"
 ```
 
 **Store Learnings:**
-```
+
+```text
 mcp__cloudmcp-manager__memory-add_observations for estimation learnings
 ```
 
 ## Handoff
 
 After tasks generated:
+
 - Hand off to **critic** for validation
 - Then to **implementer** for implementation
 

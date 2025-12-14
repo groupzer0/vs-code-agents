@@ -12,6 +12,7 @@ model: opus
 ## Claude Code Tools
 
 You have direct access to:
+
 - **Read/Grep/Glob**: Analyze codebase architecture
 - **Write/Edit**: Create/update `.agents/architecture/` files only
 - **WebSearch**: Research architectural patterns
@@ -73,16 +74,19 @@ What is the change we're proposing and/or doing?
 ## Review Phases
 
 ### Pre-Planning Review
+
 - Validate problem understanding
 - Identify architectural implications
 - Surface known patterns that apply
 
 ### Plan Review
+
 - Verify design aligns with ADRs
 - Check pattern consistency
 - Identify potential violations
 
 ### Post-Implementation Review
+
 - Validate implementation matches design
 - Identify deviations
 - Update ADRs if needed
@@ -90,12 +94,14 @@ What is the change we're proposing and/or doing?
 ## Memory Protocol
 
 **Retrieve Decisions:**
-```
+
+```text
 mcp__cloudmcp-manager__memory-search_nodes with query="ADR architecture [topic]"
 ```
 
 **Store Decisions:**
-```
+
+```text
 mcp__cloudmcp-manager__memory-create_entities for new ADRs
 mcp__cloudmcp-manager__memory-add_observations for updates
 ```
@@ -120,6 +126,7 @@ mcp__cloudmcp-manager__memory-add_observations for updates
 ## Output Location
 
 `.agents/architecture/`
+
 - `ADR-NNN-[decision].md` - Architecture Decision Records
 - `[topic]-review.md` - Design review notes
 

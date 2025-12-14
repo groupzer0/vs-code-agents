@@ -12,6 +12,7 @@ model: opus
 ## Claude Code Tools
 
 You have direct access to:
+
 - **Read/Grep/Glob**: Research existing code
 - **WebSearch/WebFetch**: Research best practices
 - **Write**: Create documentation
@@ -74,6 +75,7 @@ Remaining questions or assumptions
 ## INVEST Validation
 
 Validate each user story follows INVEST:
+
 - **I**ndependent
 - **N**egotiable
 - **V**aluable
@@ -84,13 +86,15 @@ Validate each user story follows INVEST:
 ## Memory Protocol
 
 **Store Feature Context:**
-```
+
+```text
 mcp__cloudmcp-manager__memory-create_entities for new feature definitions
 ```
 
 ## Target Audience
 
 Write for **junior developers**:
+
 - Explicit requirements
 - Unambiguous language
 - Grade 9 reading level
@@ -104,5 +108,6 @@ Write for **junior developers**:
 ## Handoff
 
 After PRD complete:
+
 - Hand off to **critic** for validation
 - Then to **task-generator** for task breakdown

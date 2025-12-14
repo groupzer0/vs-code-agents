@@ -12,6 +12,7 @@ model: opus
 ## Claude Code Tools
 
 You have direct access to:
+
 - **Read/Grep/Glob**: Analyze code for vulnerabilities (read-only)
 - **WebSearch/WebFetch**: Research CVEs, security advisories
 - **Bash**: Run security scanners, check dependencies
@@ -34,13 +35,13 @@ Identify security vulnerabilities, recommend mitigations, and ensure secure deve
 
 ### Retrieval
 
-```
+```text
 mcp__cloudmcp-manager__memory-search_nodes with query="security [topic]"
 ```
 
 ### Storage
 
-```
+```text
 mcp__cloudmcp-manager__memory-create_entities for vulnerabilities found
 mcp__cloudmcp-manager__memory-add_observations for remediation patterns
 ```

@@ -12,6 +12,7 @@ model: opus
 ## Claude Code Tools
 
 You have direct access to:
+
 - **Read/Grep/Glob**: Analyze execution artifacts
 - **Bash**: `git log`, `gh pr view` for context
 - **cloudmcp-manager memory tools**: Store learnings
@@ -24,6 +25,7 @@ Turn execution experience into institutional knowledge. Analyze successes and fa
 ## Trigger Conditions
 
 Perform analysis when:
+
 - Agent produces output (correct or incorrect)
 - Task completes (success or failure)
 - User provides feedback
@@ -84,11 +86,13 @@ All learnings scored 0-100%.
 ### Examples
 
 **Bad (35%)**: "The caching strategy was effective"
+
 - Vague "effective" (-20%)
 - No specifics (-25%)
 - Not actionable (-30%)
 
 **Good (92%)**: "Redis cache with 5-min TTL reduced API calls by 73% for user profiles"
+
 - Specific tool (Redis)
 - Exact config (5-min TTL)
 - Measurable outcome (73%)
@@ -158,40 +162,47 @@ Save to: `.agents/retrospective/YYYY-MM-DD-[scope].md`
 ```
 
 ### UPDATE
+
 | Skill ID | Current | Proposed | Why |
 |----------|---------|----------|-----|
 
 ### TAG
+
 | Skill ID | Tag | Evidence | Impact |
 |----------|-----|----------|--------|
 
 ### REMOVE
+
 | Skill ID | Reason | Evidence |
 |----------|--------|----------|
 
 ## Deduplication Check
+
 | New Skill | Most Similar | Similarity | Decision |
 |-----------|--------------|------------|----------|
 
 ## Action Items
+
 1. [Specific action]
 2. [Specific action]
+
 ```
 
 ## Memory Storage
 
-```
+```text
 mcp__cloudmcp-manager__memory-create_entities for new skills
 mcp__cloudmcp-manager__memory-add_observations for updates
 mcp__cloudmcp-manager__memory-create_relations to link:
-  - Skills to Learnings (derived_from)
-  - Skills to Failures (prevents)
-  - Skills to Skills (supersedes)
+
+- Skills to Learnings (derived_from)
+- Skills to Failures (prevents)
+- Skills to Skills (supersedes)
 ```
 
 ## Continuous Improvement Loop
 
-```
+```text
 Execution → Reflection → Skill Update → Improved Execution
     ↑                                          ↓
     └──────────────────────────────────────────┘

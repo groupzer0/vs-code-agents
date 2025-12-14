@@ -12,6 +12,7 @@ model: opus
 ## Claude Code Tools
 
 You have direct access to:
+
 - **Read/Grep/Glob**: Analyze codebase scope
 - **Write/Edit**: Create `.agents/planning/` files
 - **TodoWrite**: Track planning progress
@@ -89,12 +90,14 @@ How we know the plan is complete:
 ## Memory Protocol
 
 **Retrieve Context:**
-```
+
+```text
 mcp__cloudmcp-manager__memory-search_nodes with query="plan [feature type]"
 ```
 
 **Store Plans:**
-```
+
+```text
 mcp__cloudmcp-manager__memory-create_entities for major planning decisions
 ```
 
@@ -109,6 +112,7 @@ mcp__cloudmcp-manager__memory-create_entities for major planning decisions
 ## Handoff Protocol
 
 After plan created:
+
 1. **MUST** hand off to **critic** for validation
 2. Wait for approval before implementation
 3. Only after critic approval → **implementer** or **generate-tasks**
@@ -125,6 +129,7 @@ After plan created:
 ## Output Location
 
 `.agents/planning/`
+
 - `NNN-[feature]-plan.md` - Implementation plans
 - `PRD-[feature].md` - Product requirements
 

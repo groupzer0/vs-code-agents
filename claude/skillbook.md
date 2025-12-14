@@ -12,6 +12,7 @@ model: sonnet
 ## Claude Code Tools
 
 You have direct access to:
+
 - **cloudmcp-manager memory tools**: Skill storage
 - **Read/Grep**: Search for existing patterns
 - **TodoWrite**: Track skill operations
@@ -119,7 +120,8 @@ Query: "skill [topic] [keywords]"
 ## Memory Operations
 
 **Create Skill:**
-```
+
+```json
 mcp__cloudmcp-manager__memory-create_entities
 {
   "entities": [{
@@ -138,7 +140,8 @@ mcp__cloudmcp-manager__memory-create_entities
 ```
 
 **Update Skill:**
-```
+
+```json
 mcp__cloudmcp-manager__memory-add_observations
 {
   "observations": [{
@@ -165,6 +168,7 @@ When skills conflict:
 ## Quality Gates
 
 ### New Skill Acceptance
+
 - [ ] Atomicity >70%
 - [ ] Deduplication check passed
 - [ ] Context clearly defined
@@ -172,6 +176,7 @@ When skills conflict:
 - [ ] Actionable guidance
 
 ### Retirement Criteria
+
 - [ ] Failure count > 2 with no successes
 - [ ] Superseded by higher-rated skill
 - [ ] Context no longer exists

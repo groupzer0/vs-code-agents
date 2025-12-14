@@ -12,6 +12,7 @@ model: opus
 ## Claude Code Tools
 
 You have direct access to:
+
 - **Read/Grep/Glob**: Analyze code and tests
 - **Bash**: `dotnet test`, `dotnet test --collect:"XPlat Code Coverage"`
 - **Write/Edit**: Create test files
@@ -121,12 +122,14 @@ dotnet reportgenerator -reports:coverage.xml -targetdir:coverage-report
 ## Memory Protocol
 
 **Retrieve Patterns:**
-```
+
+```text
 mcp__cloudmcp-manager__memory-search_nodes with query="test strategy [feature type]"
 ```
 
 **Store Learnings:**
-```
+
+```text
 mcp__cloudmcp-manager__memory-add_observations for testing insights
 ```
 
@@ -149,6 +152,7 @@ mcp__cloudmcp-manager__memory-add_observations for testing insights
 ## Output Location
 
 `.agents/qa/`
+
 - `NNN-[feature]-test-strategy.md` - Before implementation
 - `NNN-[feature]-test-report.md` - After implementation
 

@@ -12,6 +12,7 @@ model: opus
 ## Claude Code Tools
 
 You have direct access to:
+
 - **Read/Grep/Glob**: Deep code analysis (read-only)
 - **WebSearch/WebFetch**: Research best practices, API docs, usage patterns
 - **Bash**: Git commands, GitHub CLI (`gh issue`, `gh api`)
@@ -35,6 +36,7 @@ Investigate before implementation. Surface unknowns, risks, and dependencies. Pr
 ## Research Tools
 
 ### Web Research
+
 ```bash
 # Search for usage patterns, StackOverflow mentions, discussions
 WebSearch("topic site:stackoverflow.com")
@@ -42,18 +44,21 @@ WebSearch("library best practices 2024")
 ```
 
 ### Repository Documentation (DeepWiki)
-```
+
+```text
 mcp__cognitionai-deepwiki__ask_question with repoName="owner/repo" question="how does X work?"
 mcp__cognitionai-deepwiki__read_wiki_contents with repoName="owner/repo"
 ```
 
 ### Library Documentation (Context7)
-```
+
+```text
 mcp__context7__resolve-library-id with libraryName="library-name"
 mcp__context7__get-library-docs with context7CompatibleLibraryID="/lib/id"
 ```
 
 ### GitHub Integration
+
 ```bash
 # Search for related issues
 gh issue list --search "[keywords]"
@@ -70,6 +75,7 @@ gh pr list --search "[keywords]"
 ```
 
 ### Git History
+
 ```bash
 # Find related commits
 git log --all --oneline --grep="[keyword]"
@@ -84,6 +90,7 @@ git log -p --all -S "[function]"
 ## Analysis Types
 
 ### Root Cause Analysis
+
 ```markdown
 ## Root Cause Analysis: [Issue]
 
@@ -104,6 +111,7 @@ git log -p --all -S "[function]"
 ```
 
 ### Technical Research
+
 ```markdown
 ## Research: [Topic]
 
@@ -127,6 +135,7 @@ git log -p --all -S "[function]"
 ```
 
 ### Feature Request Review
+
 ```markdown
 ## Feature Request Review: [Feature]
 
@@ -167,12 +176,14 @@ Based on the above, [accept/defer/request more evidence]:
 ## Memory Protocol
 
 **Retrieve Context:**
-```
+
+```text
 mcp__cloudmcp-manager__memory-search_nodes with query="research [topic]"
 ```
 
 **Store Findings:**
-```
+
+```text
 mcp__cloudmcp-manager__memory-create_entities for new research findings
 mcp__cloudmcp-manager__memory-add_observations for updates
 ```

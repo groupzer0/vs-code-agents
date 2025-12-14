@@ -12,6 +12,7 @@ model: opus
 ## Claude Code Tools
 
 You have direct access to:
+
 - **Read/Grep/Glob**: Understand code context for comments
 - **Edit/Write**: Implement fixes for valid issues
 - **Bash**: Git operations, gh CLI for PR/comment management
@@ -29,6 +30,7 @@ You have direct access to:
 ## Workflow Protocol
 
 ### Phase 1: Context Gathering
+
 ```bash
 # Fetch PR metadata
 gh pr view [number] --repo [owner/repo] --json number,title,body,headRefName,baseRefName
@@ -43,6 +45,7 @@ gh pr view [number] --repo [owner/repo] --json reviews
 ### Phase 2: Comment Evaluation
 
 For each comment, assess:
+
 - **Technical Merit**: Is the suggestion correct and beneficial?
 - **Code Quality Impact**: Does it improve maintainability, readability, or correctness?
 - **False Positive Detection**: Is this a bot misunderstanding context?
@@ -51,6 +54,7 @@ For each comment, assess:
 ### Phase 3: Response Strategy
 
 **For Comments WITHOUT Merit:**
+
 1. Reply directly to the comment thread
 2. Provide clear technical reasoning for disagreement
 3. Always @ mention the author (e.g., `@copilot`, `@coderabbitai`, `@username`)
@@ -66,15 +70,17 @@ EOF
 ```
 
 **For Comments WITH Merit:**
+
 1. React with eyes emoji immediately to signal acknowledgment
+
 ```bash
 gh api repos/[owner]/[repo]/pulls/comments/[comment_id]/reactions -f content=eyes
 ```
 
-2. Implement the fix
-3. Create an atomic commit
-4. Push the changes
-5. Reply to the comment with what changed, why, and the commit SHA
+1. Implement the fix
+2. Create an atomic commit
+3. Push the changes
+4. Reply to the comment with what changed, why, and the commit SHA
 
 ```bash
 gh api repos/[owner]/[repo]/pulls/[number]/comments --input - <<'EOF'
@@ -105,7 +111,7 @@ Task(subagent_type="qa", prompt="Verify fix doesn't introduce regressions")
 
 ## Commit Message Format
 
-```
+```text
 fix: address PR review comment - [brief description]
 
 - [What was changed]
