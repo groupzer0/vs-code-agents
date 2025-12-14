@@ -1,0 +1,59 @@
+config:
+  # Line length - disabled for agent templates with long tool lists and descriptions
+  MD013: false
+
+  # Table column style - disabled, tables are readable as-is
+  MD060: false
+
+  # Ordered list prefix - disabled, sequential numbering (1/2/3) is more readable than all-1s
+  MD029: false
+
+  # Fenced code language - REQUIRED for syntax highlighting
+  # Note: 3 known false positives in nested template files (retrospective.md, roadmap.md)
+  # where closing fences of outer markdown blocks are misidentified as new blocks
+  MD040: true
+
+  # Inline HTML - allow specific elements, flag unescaped generic types
+  MD033:
+    allowed_elements:
+      - br
+      - kbd
+      - sup
+      - sub
+
+  # Multiple H1 - allow in agent templates (frontmatter can create implicit H1)
+  MD025:
+    front_matter_title: ""
+
+  # Heading style - consistent ATX style (#)
+  MD003:
+    style: "atx"
+
+  # Code block style - consistent fenced style
+  MD046:
+    style: "fenced"
+
+  # Code fence style - consistent backticks
+  MD048:
+    style: "backtick"
+
+  # List marker style - consistent dashes
+  MD004:
+    style: "dash"
+
+  # Emphasis style - consistent asterisks
+  MD049:
+    style: "asterisk"
+
+  # Strong style - consistent asterisks
+  MD050:
+    style: "asterisk"
+
+globs:
+  - "**/*.md"
+  - "!node_modules/**"
+  - "!.agents/**"
+
+ignores:
+  - "node_modules/**"
+  - ".agents/**"
