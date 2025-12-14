@@ -33,6 +33,7 @@ A coordinated multi-agent system for software development, available for **VS Co
 ```
 
 **Usage:**
+
 ```bash
 # Command-line invocation
 copilot --agent analyst --prompt "investigate issue X"
@@ -54,14 +55,14 @@ copilot
 
 ## Directory Structure
 
-```
-├── vs-code-agents/          # VS Code / GitHub Copilot agents
-├── copilot-cli/             # GitHub Copilot CLI agents
-├── claude/                   # Claude Code CLI agents
-├── scripts/                  # Installation scripts
-├── copilot-instructions.md   # GitHub Copilot instructions
-├── CLAUDE.md                 # Claude Code instructions
-└── USING-AGENTS.md           # Detailed usage guide
+```text
+vs-code-agents/          # VS Code / GitHub Copilot agents
+copilot-cli/             # GitHub Copilot CLI agents
+claude/                  # Claude Code CLI agents
+scripts/                 # Installation scripts
+copilot-instructions.md  # GitHub Copilot instructions
+CLAUDE.md                # Claude Code instructions
+USING-AGENTS.md          # Detailed usage guide
 ```
 
 ## Agents

@@ -39,20 +39,20 @@ This repository uses a coordinated multi-agent system for software development. 
 
 ### Standard Feature Development
 
-```
-orchestrator → analyst → architect → planner → critic → implementer → qa → retrospective
+```text
+orchestrator -> analyst -> architect -> planner -> critic -> implementer -> qa -> retrospective
 ```
 
 ### Quick Fix Path
 
-```
-implementer → qa
+```text
+implementer -> qa
 ```
 
 ### Strategic Decision Path
 
-```
-independent-thinker → high-level-advisor → task-generator
+```text
+independent-thinker -> high-level-advisor -> task-generator
 ```
 
 ## Handoff Protocol
@@ -108,8 +108,8 @@ Agents use `cloudmcp-manager` memory tools for cross-session continuity:
 
 The agent system includes a continuous improvement loop:
 
-```
-Execution → Reflection → Skill Update → Improved Execution
+```text
+Execution -> Reflection -> Skill Update -> Improved Execution
 ```
 
 ### Skill Citation Protocol

@@ -6,9 +6,9 @@ This repository provides a coordinated multi-agent system for software developme
 
 ### Typical Workflow
 
-```
+```text
 Orchestrator → Analyst → Architect → Planner → Critic → Implementer → QA → Retrospective
-```
+```text
 
 The Memory agent provides long-running context across sessions using `cloudmcp-manager` for persistent memory.
 
@@ -19,46 +19,52 @@ The Memory agent provides long-running context across sessions using `cloudmcp-m
 ### VS Code Installation
 
 **Global (all workspaces):**
+
 ```powershell
 .\scripts\install-vscode-global.ps1
-```
+```text
 
 **Per-repository:**
+
 ```powershell
 .\scripts\install-vscode-repo.ps1 -RepoPath "C:\Path\To\Your\Repo"
-```
+```text
 
 ### GitHub Copilot CLI Installation
 
 **Per-repository (recommended):**
+
 ```powershell
 .\scripts\install-copilot-cli-repo.ps1 -RepoPath "C:\Path\To\Your\Repo"
-```
+```text
 
 **Global (known issues - see [Issue #2](https://github.com/rjmurillo/vs-code-agents/issues/2)):**
+
 ```powershell
 .\scripts\install-copilot-cli-global.ps1
-```
+```text
 
 > **Note:** User-level agents in `~/.copilot/agents/` are not currently loaded due to [GitHub Issue #452](https://github.com/github/copilot-cli/issues/452). Use per-repository installation.
 
 ### Claude Code Installation
 
 **Global (all sessions):**
+
 ```powershell
 .\scripts\install-claude-global.ps1
-```
+```text
 
 **Per-repository:**
+
 ```powershell
 .\scripts\install-claude-repo.ps1 -RepoPath "C:\Path\To\Your\Repo"
-```
+```text
 
 ---
 
 ## Directory Structure
 
-```
+```text
 .
 ├── vs-code-agents/          # VS Code / GitHub Copilot agents
 │   └── *.agent.md
@@ -76,7 +82,7 @@ The Memory agent provides long-running context across sessions using `cloudmcp-m
 ├── copilot-instructions.md   # GitHub Copilot instructions
 ├── CLAUDE.md                 # Claude Code instructions
 └── USING-AGENTS.md           # This file
-```
+```text
 
 ---
 
@@ -117,11 +123,12 @@ The Memory agent provides long-running context across sessions using `cloudmcp-m
 ### Invoking Agents
 
 In GitHub Copilot Chat:
-```
+
+```text
 @orchestrator Help me implement a new feature
 @implementer Fix the bug in UserService.cs
 @analyst Investigate why tests are failing
-```
+```text
 
 ### Installation Locations
 
@@ -133,7 +140,7 @@ In GitHub Copilot Chat:
 
 ### More Information
 
-See the official documentation: https://code.visualstudio.com/docs/copilot/copilot-agents
+See the official documentation: <https://code.visualstudio.com/docs/copilot/copilot-agents>
 
 ---
 
@@ -142,17 +149,19 @@ See the official documentation: https://code.visualstudio.com/docs/copilot/copil
 ### Invoking Agents
 
 **Command-line invocation:**
+
 ```bash
 copilot --agent analyst --prompt "investigate why tests are failing"
 copilot --agent implementer --prompt "fix the bug in UserService.cs"
 copilot --agent orchestrator --prompt "help me implement a new feature"
-```
+```text
 
 **Interactive mode:**
+
 ```bash
 copilot
 /agent analyst
-```
+```text
 
 ### Installation Locations
 
@@ -167,7 +176,7 @@ copilot
 - Agents are defined with YAML frontmatter including `name`, `description`, and `tools`
 - MCP servers (like `cloudmcp-manager`) need separate configuration in `~/.copilot/mcp-config.json`
 
-See the official documentation: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli
+See the official documentation: <https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli>
 
 ---
 
@@ -176,11 +185,12 @@ See the official documentation: https://docs.github.com/en/copilot/how-tos/use-c
 ### Invoking Agents
 
 Using the Task tool:
+
 ```python
 Task(subagent_type="analyst", prompt="Investigate why X fails")
 Task(subagent_type="implementer", prompt="Implement feature X")
 Task(subagent_type="critic", prompt="Validate plan at .agents/planning/...")
-```
+```text
 
 ### Installation Locations
 
@@ -226,21 +236,21 @@ All agents use `cloudmcp-manager` for cross-session memory (replaces Flowbaby).
 
 ### Standard Feature Development
 
-```
+```text
 orchestrator → analyst → architect → planner → critic → implementer → qa → retrospective
-```
+```text
 
 ### Quick Fix Path
 
-```
+```text
 implementer → qa
-```
+```text
 
 ### Strategic Decision Path
 
-```
+```text
 independent-thinker → high-level-advisor → task-generator
-```
+```text
 
 ---
 
@@ -251,6 +261,7 @@ independent-thinker → high-level-advisor → task-generator
 **Role**: Routes work to specialized agents based on task requirements.
 
 **Use when**:
+
 - Starting complex multi-step tasks
 - Unclear which agent should handle a request
 
@@ -263,10 +274,12 @@ independent-thinker → high-level-advisor → task-generator
 **Role**: Investigates unknowns, APIs, performance questions, and tricky tradeoffs.
 
 **Use when**:
+
 - Technical uncertainty exists
 - Need API experiments, benchmarks, or comparative analysis
 
 **Example prompts**:
+
 - "Investigate why the cache is causing memory issues"
 - "Research options for implementing OAuth 2.0"
 
@@ -279,6 +292,7 @@ independent-thinker → high-level-advisor → task-generator
 **Role**: Maintains architecture, patterns, boundaries, and high-level design decisions.
 
 **Use when**:
+
 - Feature affects system structure or boundaries
 - Need ADRs or architectural guidance
 
@@ -293,6 +307,7 @@ independent-thinker → high-level-advisor → task-generator
 **Role**: Turns epics into concrete, implementation-ready plans.
 
 **Use when**:
+
 - Have a feature/epic and need a structured plan
 - Requirements need to be clarified and broken into milestones
 
@@ -307,6 +322,7 @@ independent-thinker → high-level-advisor → task-generator
 **Role**: Critically reviews plans before implementation.
 
 **Use when**:
+
 - Plan is "done" and needs quality gate
 - Before any implementation begins
 
@@ -321,10 +337,12 @@ independent-thinker → high-level-advisor → task-generator
 **Role**: Writes and modifies code, implements approved plans, ensures tests exist and pass.
 
 **Use when**:
+
 - Plan has been approved
 - Need to fix implementation issues
 
 **Example prompts**:
+
 - "Implement the UserService per the approved plan"
 - "Add unit tests for the PaymentProcessor"
 
@@ -337,6 +355,7 @@ independent-thinker → high-level-advisor → task-generator
 **Role**: Designs test strategy, ensures coverage, runs tests.
 
 **Use when**:
+
 - Need a test plan before implementation
 - Implementation done and needs test pass
 
@@ -351,6 +370,7 @@ independent-thinker → high-level-advisor → task-generator
 **Role**: Runs post-implementation retrospectives focusing on process improvement.
 
 **Use when**:
+
 - Feature completed through QA
 - Want to understand what went well/poorly
 
@@ -365,6 +385,7 @@ independent-thinker → high-level-advisor → task-generator
 **Role**: Retrieves/stores long-term context for coherence across sessions.
 
 **Use when**:
+
 - Resuming long-running effort
 - Need explicit memory retrievals
 
@@ -375,6 +396,7 @@ independent-thinker → high-level-advisor → task-generator
 **Role**: Manages learned strategies with atomicity scoring and deduplication.
 
 **Use when**:
+
 - New strategy discovered that should be reused
 - Need to update or tag existing skills
 
@@ -384,11 +406,11 @@ independent-thinker → high-level-advisor → task-generator
 
 The agent system includes a continuous improvement loop:
 
-```
+```text
 Execution → Reflection → Skill Update → Improved Execution
     ↑                                          ↓
     └──────────────────────────────────────────┘
-```
+```text
 
 ### Skill Citation Protocol
 
@@ -403,7 +425,7 @@ When applying learned strategies, cite skills:
 
 **Result**: Build succeeded
 **Skill Validated**: Yes
-```
+```text
 
 ### Atomicity Scoring
 
@@ -421,6 +443,7 @@ Learnings are scored 0-100% for quality:
 ## Customizing Agents
 
 Each agent file defines:
+
 - **description**: Purpose of the agent
 - **tools**: Allowed tools (file editing, tests, GitHub, etc.)
 - **model**: AI model to use (opus, sonnet, haiku)

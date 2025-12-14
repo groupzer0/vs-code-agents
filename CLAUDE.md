@@ -32,18 +32,21 @@ This repository provides a coordinated multi-agent system for software developme
 ## Standard Workflows
 
 **Feature Development:**
-```
-analyst → architect → planner → critic → implementer → qa → retrospective
+
+```text
+analyst -> architect -> planner -> critic -> implementer -> qa -> retrospective
 ```
 
 **Quick Fix:**
-```
-implementer → qa
+
+```text
+implementer -> qa
 ```
 
 **Strategic Decision:**
-```
-independent-thinker → high-level-advisor → task-generator
+
+```text
+independent-thinker -> high-level-advisor -> task-generator
 ```
 
 ## Invocation Examples
@@ -100,6 +103,7 @@ When applying learned strategies, cite skills:
 ## Output Directories
 
 Agents save artifacts to `.agents/`:
+
 - `analysis/` - Analyst findings
 - `architecture/` - ADRs
 - `planning/` - Plans and PRDs

@@ -13,16 +13,19 @@ When reviewing pull requests that modify agent files, pay close attention to **d
 These differences are expected and should NOT be flagged:
 
 ### Frontmatter
+
 - **VS Code** uses: `description`, `tools`, `model` (e.g., `Claude Opus 4.5 (anthropic)`)
 - **Copilot CLI** uses: `name`, `description`, `tools` (no model - ignored by Copilot CLI)
 - **Claude** uses: `name`, `description`, `model` (e.g., `opus`, `sonnet`, `haiku`)
 
 ### Tool References
+
 - **VS Code** references: `vscode`, `execute`, `read`, `edit`, `search`, `web`, `agent`, `todo`, MCP tool paths like `cloudmcp-manager/*`, `github/*`, VS Code extension tools like `github.vscode-pull-request-github/*`
 - **Copilot CLI** references: `shell`, `read`, `edit`, `search`, `web`, `agent`, `todo`, MCP tool paths like `cloudmcp-manager/*`, `github/*` (no `vscode` or VS Code extension tools)
 - **Claude** references: `Read`, `Write`, `Edit`, `Grep`, `Glob`, `Bash`, `TodoWrite`, `Task`, MCP functions like `mcp__cloudmcp-manager__memory-*`
 
 ### Invocation Syntax
+
 - **VS Code**: `@agent-name` mentions, `#runSubagent`
 - **Copilot CLI**: `copilot --agent agent-name`, `/agent agent-name`
 - **Claude**: `Task(subagent_type="agent-name", prompt="...")`
@@ -32,9 +35,11 @@ These differences are expected and should NOT be flagged:
 These elements MUST remain consistent between versions. Flag any drift:
 
 ### 1. Core Identity & Mission
+
 The agent's role, purpose, and core mission should be identical or semantically equivalent.
 
 **Example - Check for consistency:**
+
 ```markdown
 # VS Code
 **Execution-Focused C# Expert** implementing production code...
@@ -44,31 +49,41 @@ The agent's role, purpose, and core mission should be identical or semantically 
 ```
 
 ### 2. Key Responsibilities
+
 The numbered list of responsibilities should match.
 
 ### 3. Software Hierarchy of Needs
+
 For implementer agents, the hierarchy (Qualities → Principles → Practices → Wisdom → Patterns) must be identical.
 
 ### 4. Handoff Protocol
+
 Agent handoff targets and conditions should match:
+
 - Which agents can be handed off to
 - When handoffs occur
 - Handoff announcement format
 
 ### 5. Memory Protocol
+
 Memory entity naming conventions and operations should be consistent:
+
 - Entity patterns (e.g., `Feature-[Name]`, `Skill-[Category]-[Number]`)
 - Relation types
 - Storage/retrieval guidance
 
 ### 6. Output Directories
+
 Both versions should reference the same `.agents/` output structure.
 
 ### 7. Constraints & Rules
+
 Any "DO NOT" rules or constraints must be identical.
 
 ### 8. Skill Citation Protocol
+
 The skill citation format must match:
+
 ```markdown
 **Applying**: [Skill-ID]
 **Strategy**: [Description]
@@ -76,6 +91,7 @@ The skill citation format must match:
 ```
 
 ### 9. Atomicity Scoring
+
 Scoring thresholds and penalties must be identical for skillbook/retrospective agents.
 
 ## Review Checklist
