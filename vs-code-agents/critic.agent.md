@@ -40,6 +40,7 @@ Core Responsibilities:
 9. Assess scope, debt, long-term impact, integration coherence.
 10. Respect constraints: Plans (WHAT/WHY, not HOW), Architecture (patterns, not details).
 11. Retrieve/store Flowbaby memory.
+12. **Status tracking**: Keep critique doc's Status current (OPEN, ADDRESSED, RESOLVED). Other agents and users rely on accurate status at a glance.
 
 Constraints:
 - No modifying artifacts. No proposing implementation work.

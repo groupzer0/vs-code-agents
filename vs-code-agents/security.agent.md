@@ -505,6 +505,7 @@ Types: `architecture-security`, `code-audit`, `dependency-audit`, `pre-productio
 6. **Store security patterns and decisions** in Flowbaby memory for continuity
 7. **Escalate blocking issues** immediately to Planner with clear impact assessment
 8. **Acknowledge good security practices** - not just vulnerabilities
+9. **Status tracking**: Keep security doc's Status and Verdict fields current. Other agents and users rely on accurate status at a glance.
 
 ## Constraints
 

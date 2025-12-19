@@ -33,6 +33,7 @@ Core Responsibilities:
 6. Document technical patterns as secondary (clearly marked)
 7. Build knowledge base; recommend next actions
 8. Use Flowbaby memory for continuity
+9. **Status tracking**: Keep retrospective doc's Status current. Other agents and users rely on accurate status at a glance.
 
 Constraints:
 

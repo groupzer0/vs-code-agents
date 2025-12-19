@@ -50,6 +50,7 @@ Produce implementation-ready plans translating roadmap epics into actionable, ve
 12. MUST NOT define QA processes/test cases/test requirements. QA agent's exclusive responsibility in `agent-output/qa/`.
 13. Include version management milestone. Update release artifacts to match roadmap target version.
 14. Retrieve/store Flowbaby memory.
+15. **Status tracking**: When incorporating analysis into a plan, update the analysis doc's Status field to "Planned" and add changelog entry. Keep agent-output docs' status current so other agents and users know document state at a glance.
 
 ## Constraints
 

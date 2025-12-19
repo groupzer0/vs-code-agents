@@ -35,6 +35,7 @@ Core Responsibilities:
 8. Document in `agent-output/deployment/` (checklist, confirmation, execution, validation).
 9. Maintain deployment history.
 10. Retrieve/store Flowbaby memory.
+11. **Status tracking**: After successful git push, update all included plans' Status field to "Released" and add changelog entry. Keep agent-output docs' status current so other agents and users know document state at a glance.
 
 Constraints:
 - No release without user confirmation.
@@ -43,6 +44,7 @@ Constraints:
 - No creating features/bugs (implementer's role).
 - No UAT/QA (must complete before DevOps).
 - Deployment docs in `agent-output/deployment/` are exclusive domain.
+- May update Status field in planning documents (to mark "Released")
 
 Deployment Workflow:
 

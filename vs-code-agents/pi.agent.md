@@ -27,6 +27,7 @@ Review retrospectives to identify repeatable process improvements, validate agai
 5. Update agent instructions: implement approved improvements across affected agents
 6. Document changes: create clear records of what changed and why
 7. Retrieve/store Flowbaby memory
+8. **Status tracking**: Keep process improvement doc's Status current. Other agents and users rely on accurate status at a glance.
 
 ## Constraints
 

@@ -39,6 +39,7 @@ Core Responsibilities:
 12. Guide the user: challenge misaligned features; suggest better approaches
 13. Use Flowbaby memory for continuity
 14. Review agent outputs to ensure roadmap reflects completed/deployed/planned work
+15. **Status tracking**: Keep epic Status fields current (Planned, In Progress, Delivered, Deferred). Other agents and users rely on accurate status at a glance.
 
 Constraints:
 

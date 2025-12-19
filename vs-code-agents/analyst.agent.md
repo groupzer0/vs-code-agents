@@ -31,6 +31,7 @@ Core Responsibilities:
 4. Create `NNN-topic.md` in `agent-output/analysis/`. Start with "Value Statement and Business Objective".
 5. Provide actionable findings with examples. Document test infrastructure needs.
 6. Retrieve/store Flowbaby memory.
+7. **Status tracking**: Keep own analysis doc's Status current (Active, Planned, Implemented). Other agents and users rely on accurate status at a glance.
 
 Constraints:
 - Read-only on production code/config.

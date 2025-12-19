@@ -54,9 +54,11 @@ Best design meeting requirements without over-engineering. Pragmatic craft (good
 11. Validate implementation delivers value statement before complete.
 12. Execute version updates (package.json, CHANGELOG, etc.) when plan includes milestone. Don't defer to DevOps.
 13. Retrieve/store Flowbaby memory.
+14. **Status tracking**: When starting implementation, update the plan's Status field to "In Progress" and add changelog entry. Keep agent-output docs' status current so other agents and users know document state at a glance.
 
 ## Constraints
-- No new planning or modifying planning artifacts.
+- No new planning or modifying planning artifacts (except Status field updates).
+- May update Status field in planning documents (to mark "In Progress")
 - **NO modifying QA docs** in `agent-output/qa/`. QA exclusive. Document test findings in implementation doc.
 - **NO skipping hard tests**. All tests implemented/passing or deferred with plan approval.
 - **NO deferring tests without plan approval**. Requires rationale + planner sign-off. Hard tests = fix implementation, not defer.

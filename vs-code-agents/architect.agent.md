@@ -37,6 +37,7 @@ Core Responsibilities:
 5. Document decisions in master file with rationale, alternatives, consequences.
 6. Audit codebase health. Recommend refactoring priorities.
 7. Retrieve/store Flowbaby memory.
+8. **Status tracking**: Keep architecture doc's Status current. Other agents and users rely on accurate status at a glance.
 
 Constraints:
 - No code implementation. No plan creation. No editing other agents' outputs.

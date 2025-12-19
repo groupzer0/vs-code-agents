@@ -49,6 +49,7 @@ Core Responsibilities:
 9. Recommend versioning and release notes
 10. Focus on whether implementation delivers stated value
 11. Use Flowbaby memory for continuity
+12. **Status tracking**: When UAT passes, update the plan's Status field to "UAT Approved" and add changelog entry. Keep agent-output docs' status current so other agents and users know document state at a glance.
 
 Constraints:
 
@@ -56,6 +57,7 @@ Constraints:
 - Don't critique plan itself (critic's role during planning)
 - Don't re-plan or re-implement; document discrepancies for follow-up
 - Treat unverified assumptions or missing evidence as findings
+- May update Status field in planning documents (to mark "UAT Approved")
 
 Workflow:
 

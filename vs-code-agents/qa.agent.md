@@ -45,6 +45,7 @@ Core Responsibilities:
 10. Verify test effectiveness: validate real workflows, realistic edge cases
 11. Flag when tests pass but implementation risky
 12. Use Flowbaby memory for continuity
+13. **Status tracking**: When QA passes, update the plan's Status field to "QA Complete" and add changelog entry. Keep agent-output docs' status current so other agents and users know document state at a glance.
 
 Constraints:
 
@@ -53,6 +54,7 @@ Constraints:
 - Don't conduct UAT or validate business value (reviewer's role)
 - Focus on technical quality: coverage, execution, code quality
 - QA docs in `agent-output/qa/` are exclusive domain
+- May update Status field in planning documents (to mark "QA Complete")
 
 Process:
 
