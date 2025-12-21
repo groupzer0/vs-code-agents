@@ -262,6 +262,64 @@ graph TB
 
 ---
 
+## Reconciliation Changelog Template
+
+When the Architect reconciles architecture docs after implementations, use this format in the `system-architecture.md` changelog:
+
+```markdown
+| Date | Change | Rationale | Source |
+|------|--------|-----------|--------|
+| 2024-12-20 | Added memory retrieval caching layer | Reconciled from Plan-015 implementation | Plan-015-memory-caching |
+| 2024-12-18 | Updated API boundary diagram | Implementation added new endpoint | Post-implementation audit |
+| 2024-12-15 | Documented Cognee integration pattern | Previously undocumented, discovered during health audit | Health audit |
+```
+
+**Reconciliation Entry Format:**
+- **Date**: When reconciliation occurred
+- **Change**: What was updated in architecture docs
+- **Rationale**: "Reconciled from Plan-NNN" or "Post-implementation audit" or "Health audit discovery"
+- **Source**: Reference to plan, implementation, or audit that triggered reconciliation
+
+---
+
+## Design Debt Registry Template
+
+Track architectural improvements in the **Problem Areas** section of `system-architecture.md`:
+
+```markdown
+## Problem Areas / Design Debt Registry
+
+### Active Design Debt
+
+| ID | Area | Current State | Optimal State | Priority | Discovered | Last Reviewed |
+|----|------|---------------|---------------|----------|------------|---------------|
+| DD-001 | Memory Subsystem | Direct Cognee calls scattered | Unified memory service facade | Medium | 2024-12-15 | 2024-12-20 |
+| DD-002 | Error Handling | Inconsistent error types | Typed error hierarchy | Low | 2024-12-18 | 2024-12-18 |
+
+### Resolved Design Debt
+
+| ID | Resolution | Resolved Date | Related Plan |
+|----|------------|---------------|--------------|
+| DD-000 | Extracted shared utilities | 2024-12-10 | Plan-012 |
+```
+
+**Design Debt Entry Fields:**
+- **ID**: Sequential identifier (DD-NNN)
+- **Area**: Component or subsystem affected
+- **Current State**: What exists now (brief)
+- **Optimal State**: What would be better (brief)
+- **Priority**: Critical / High / Medium / Low
+- **Discovered**: When architect identified the debt
+- **Last Reviewed**: When last evaluated (may affect priority)
+
+**Priority Guidelines:**
+- **Critical**: Blocking other improvements or causing active issues
+- **High**: Should address in next 1-2 releases
+- **Medium**: Address when touching related code
+- **Low**: Nice-to-have, address opportunistically
+
+---
+
 ## Agent Responsibilities
 
 ### Architect Agent

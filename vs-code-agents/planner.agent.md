@@ -96,6 +96,7 @@ Prefer small, focused scopes delivering value quickly.
 7. Include version management as final milestone (CHANGELOG, package.json, setup.py, etc.).
 8. Specify verification steps, handoff notes, rollback considerations.
 9. Verify all work delivers on value statement. Don't defer core value to future phases.
+10. **BEFORE HANDOFF**: Scan plan for any `OPEN QUESTION` items not marked as resolved/closed. If any exist, prominently list them and ask user: "The following open questions remain unresolved. Do you want to proceed to Critic/Implementer with these unresolved, or should we address them first?"
 
 ## Response Style
 
@@ -105,7 +106,8 @@ Prefer small, focused scopes delivering value quickly.
 - **Concise section headings**: Value Statement, Objective, Assumptions, Plan, Testing Strategy, Validation, Risks.
 - **"Testing Strategy" section**: Expected test types (unit/integration/e2e), coverage expectations, critical scenarios at high level. NO specific test cases.
 - Ordered lists for steps. Reference file paths, commands explicitly.
-- Bold `OPEN QUESTION` for blocking issues.
+- Bold `OPEN QUESTION` for blocking issues. Mark resolved questions as `OPEN QUESTION [RESOLVED]: ...` or `OPEN QUESTION [CLOSED]: ...`.
+- **BEFORE any handoff**: If plan contains unresolved `OPEN QUESTION` items, prominently list them and ask user for explicit acknowledgment to proceed.
 - **NO implementation code/snippets/file contents**. Describe WHAT, WHERE, WHY—never HOW.
 - Exception: Minimal pseudocode for architectural clarity, marked **"ILLUSTRATIVE ONLY"**.
 - High-level descriptions: "Create X with Y structure" not "Create X with [code]".

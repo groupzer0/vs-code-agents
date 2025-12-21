@@ -91,13 +91,13 @@ agent-output/
 **When to use**: Starting a new feature from scratch.
 
 **Example flow**:
-1. `@Roadmap` Define epic: "User authentication system"
-2. `@Planner` Create plan from epic → `agent-output/planning/001-auth-plan.md`
-3. `@Analyst` Research OAuth providers → `agent-output/analysis/001-auth-analysis.md`
-4. `@Architect` Review design fit → updates plan or creates ADR
-5. `@Security` Threat model → `agent-output/security/001-auth-security.md`
-6. `@Critic` Final review → `agent-output/critiques/001-auth-plan-critique.md`
-7. `@Implementer` Code when approved
+1. Select **Roadmap** → Define epic: "User authentication system"
+2. Select **Planner** → Create plan from epic → `agent-output/planning/001-auth-plan.md`
+3. Select **Analyst** → Research OAuth providers → `agent-output/analysis/001-auth-analysis.md`
+4. Select **Architect** → Review design fit → updates plan or creates ADR
+5. Select **Security** → Threat model → `agent-output/security/001-auth-security.md`
+6. Select **Critic** → Final review → `agent-output/critiques/001-auth-plan-critique.md`
+7. Select **Implementer** → Code when approved
 
 ### Pattern 2: The Implementation Loop
 
@@ -114,12 +114,12 @@ agent-output/
 **When to use**: Plan is approved, coding phase.
 
 **Example flow**:
-1. `@Implementer` Implement plan → code changes + tests
-2. `@QA` Verify coverage → `agent-output/qa/001-auth-qa.md`
+1. Select **Implementer** → Implement plan → code changes + tests
+2. Select **QA** → Verify coverage → `agent-output/qa/001-auth-qa.md`
 3. If gaps: back to Implementer
-4. `@UAT` Validate value → `agent-output/uat/001-auth-uat.md`
+4. Select **UAT** → Validate value → `agent-output/uat/001-auth-uat.md`
 5. If gaps: back to Implementer
-6. `@DevOps` Release → requires user approval
+6. Select **DevOps** → Release → requires user approval
 
 ### Pattern 3: The Investigation Branch
 
@@ -133,8 +133,8 @@ agent-output/
 **When to use**: Hit technical uncertainty during any phase.
 
 **Example flow**:
-1. `@Planner` is planning auth but unsure about JWT vs session tokens
-2. `@Analyst` investigates → `agent-output/analysis/002-jwt-vs-sessions.md`
+1. With **Planner** selected, planning auth but unsure about JWT vs session tokens
+2. Select **Analyst** → investigates → `agent-output/analysis/002-jwt-vs-sessions.md`
 3. Findings go back to Planner to inform the plan
 
 ### Pattern 4: The Security Gate
@@ -166,8 +166,8 @@ agent-output/
 
 **Example flow**:
 1. Feature shipped
-2. `@Retrospective` captures what went well/poorly
-3. `@ProcessImprovement` updates agent instructions if patterns emerge
+2. Select **Retrospective** → captures what went well/poorly
+3. Select **ProcessImprovement** → updates agent instructions if patterns emerge
 
 ---
 
@@ -198,6 +198,42 @@ Every document should have:
 3. **Clear Sections**: Standardized headings
 4. **Status/Verdict**: Current state (APPROVED, BLOCKED, etc.)
 5. **References**: Links to related documents
+
+### Document Status Tracking
+
+All agents now track and update document status fields. This provides at-a-glance visibility into document state:
+
+| Status | Meaning |
+|--------|---------|
+| `Draft` | Initial creation, not yet reviewed |
+| `In Progress` | Actively being worked on |
+| `Pending Review` | Ready for next agent's review |
+| `Approved` | Passed review gate |
+| `Blocked` | Cannot proceed until issues resolved |
+| `Released` | Committed and pushed |
+
+Agents update status when:
+- **Implementer**: Marks plan "In Progress" when starting implementation
+- **Critic/QA/UAT**: Updates to "Approved" or "Blocked" after review
+- **DevOps**: Updates to "Released" after successful release
+
+### Open Question Gate
+
+Plans may contain `OPEN QUESTION` items that require resolution before implementation.
+
+**Question lifecycle:**
+1. Planner marks unresolved questions as `OPEN QUESTION: [description]`
+2. When resolved, Planner updates to `OPEN QUESTION [RESOLVED]: [description]` or `[CLOSED]`
+3. Before handoff, Planner warns user if unresolved questions remain
+
+**Implementer behavior:**
+- Scans plans for unresolved `OPEN QUESTION` items
+- If any exist, **halts and strongly recommends resolution** before proceeding
+- Requires explicit user acknowledgment to proceed despite warning
+- Documents user's decision in implementation doc
+
+> [!CAUTION]
+> Proceeding with unresolved open questions risks building on flawed assumptions. Always resolve or explicitly acknowledge before implementation.
 
 ### Handoff Protocol
 
@@ -275,14 +311,17 @@ Most "memory" solutions for AI agents fall into traps:
 
 ### Memory Contract for Agents
 
-All agents follow a unified memory contract. See [memory-contract-example.md](vs-code-agents/memory-contract-example.md) for detailed examples.
+All agents load the **`memory-contract` skill** which defines when and how to use Flowbaby memory. Agents function without Flowbaby but greatly benefit from its cross-session context.
+
+> [!TIP]
+> The full memory contract is in `vs-code-agents/skills/memory-contract/SKILL.md`. See [memory-contract-example.md](vs-code-agents/memory-contract-example.md) for usage examples.
 
 **Core principles**:
 
-1. **Retrieve first**: Before starting work, check if relevant memory exists
-2. **Store at milestones**: After decisions, completions, or discoveries
-3. **Dense summaries**: 300-1500 characters capturing goal, decisions, reasoning
-4. **Acknowledge storage**: Always say "Saved progress to Flowbaby memory."
+1. **Retrieve at decision points**: Before making assumptions or choosing between options
+2. **Store at value boundaries**: After decisions, completions, or discoveries
+3. **Specific queries**: Ask hypothesis-driven questions, not vague category requests
+4. **Acknowledge memory**: When retrieved memory influences response, say so
 
 ### Retrieval Patterns
 
@@ -600,16 +639,75 @@ The Security Agent has been significantly enhanced to provide truly objective, c
 
 ---
 
-### Memory Agent
 
-**Purpose**: Explicit memory operations for long-running work.
+## Skills System
 
-**Key Responsibilities**:
-- Store and retrieve memory explicitly
-- Support other agents with context
-- Maintain session continuity
+Agents leverage **Claude Skills**—modular, reusable instruction sets that load on-demand via progressive disclosure. This keeps agent files lean while providing deep expertise when needed.
 
-**Requires**: Flowbaby extension installed.
+### How Skills Work (Progressive Disclosure)
+
+Skills use a three-level loading system:
+
+1. **Level 1 - Discovery**: Copilot reads skill `name` and `description` from YAML frontmatter (always loaded)
+2. **Level 2 - Instructions**: When request matches, the full `SKILL.md` body loads into context
+3. **Level 3 - Resources**: Scripts, examples, and references load only when explicitly referenced
+
+This means agents can have access to many skills without consuming context until needed.
+
+### Available Skills
+
+| Skill | Purpose | Key Content |
+|-------|---------|-------------|
+| `memory-contract` | Unified Flowbaby memory contract | When/how to retrieve and store, anti-patterns |
+| `architecture-patterns` | ADR templates, patterns, anti-patterns | Layered architecture, repository pattern, STRIDE |
+| `code-review-checklist` | Pre/post-implementation review criteria | Value statement assessment, security checklist |
+| `engineering-standards` | SOLID, DRY, YAGNI, KISS | Detection patterns, refactoring guidance |
+| `release-procedures` | Two-stage release workflow, semver | Version consistency, platform constraints |
+| `security-patterns` | OWASP Top 10, language vulnerabilities | Python, JavaScript, Java, Go specific patterns |
+| `testing-patterns` | TDD workflow, test pyramid | Anti-patterns, coverage strategies, mocking |
+
+### Skill Placement
+
+Skills are placed in different directories depending on your VS Code version:
+
+| Version | Location | Notes |
+|---------|----------|-------|
+| **VS Code Stable (1.107.1)** | `.claude/skills/` | Legacy location, still supported |
+| **VS Code Insiders** | `.github/skills/` | New recommended location |
+
+> [!NOTE]
+> These locations are changing with upcoming VS Code releases. The `.github/skills/` location is becoming the standard. Check the [VS Code Agent Skills documentation](https://code.visualstudio.com/docs/copilot/customization/agent-skills) for the latest guidance.
+
+### Creating Skills
+
+Each skill is a directory with a `SKILL.md` file:
+
+```text
+vs-code-agents/skills/
+└── my-skill/
+    ├── SKILL.md           # Required: skill definition
+    ├── references/        # Optional: detailed docs
+    │   └── guide.md
+    └── scripts/           # Optional: automation
+        └── check.sh
+```
+
+**SKILL.md format:**
+
+```yaml
+---
+name: my-skill
+description: Brief description of when to use this skill
+license: MIT
+metadata:
+  author: yourname
+  version: "1.0"
+---
+
+# Skill Title
+
+Detailed instructions, tables, code examples...
+```
 
 ---
 
@@ -624,7 +722,7 @@ The Security Agent has been significantly enhanced to provide truly objective, c
    description: One-line description
    name: YourAgent
    tools: ['edit/createFile', 'search', ...]
-   model: Claude 3.5 Sonnet (or preferred)
+   model: Claude 4.5 Sonnet (or preferred)
    handoffs:
      - label: Handoff Name
        agent: TargetAgent

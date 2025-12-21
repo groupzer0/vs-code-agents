@@ -10,7 +10,7 @@ A typical high-level workflow looks like:
 
 Roadmap → Planner → (Analyst, Architect, Critic, Security) → Implementer → QA → UAT → DevOps → Retrospective → ProcessImprovement
 
-The Memory agent provides long-running context across sessions, and uses the VS Code extension Flowbaby ([GitHub repo](https://github.com/groupzer0/flowbaby)) which would need to be installed to make use of the memory functions in each agent.
+**All agents use Flowbaby memory** via the `memory-contract` skill to provide long-running context across sessions. Agents function without Flowbaby but greatly benefit from its cross-session context. Install the [Flowbaby VS Code extension](https://github.com/groupzer0/flowbaby) to enable memory functions. 
 
 ## Where to Put These Files
 
@@ -70,6 +70,36 @@ Custom agents give you:
 - **Separation of concerns**: planning vs coding vs QA vs UAT vs DevOps
 - **Repeatable workflow**: each phase of work is clearly owned by one agent
 - **Safety and clarity**: it's explicit who may edit what, and when
+
+---
+
+## Skills
+
+Agents can load **Skills**—modular, reusable instruction sets that provide specialized knowledge on-demand. Skills are stored in the `vs-code-agents/skills/` directory.
+
+### Available Skills
+
+| Skill | Purpose |
+|-------|---------|  
+| `memory-contract` | Unified Flowbaby memory retrieval/storage contract |
+| `architecture-patterns` | ADR templates, patterns, anti-pattern detection |
+| `code-review-checklist` | Pre/post-implementation review criteria |
+| `engineering-standards` | SOLID, DRY, YAGNI, KISS with detection patterns |
+| `release-procedures` | Two-stage release workflow, semver, platform constraints |
+| `security-patterns` | OWASP Top 10, language-specific vulnerabilities |
+| `testing-patterns` | TDD workflow, test pyramid, coverage strategies |
+
+### Skill Placement
+
+Skills are placed in different directories depending on your VS Code version:
+
+| Version | Location |
+|---------|----------|
+| **VS Code Stable (1.107.1)** | `.claude/skills/` |
+| **VS Code Insiders** | `.github/skills/` |
+
+> [!NOTE]
+> These locations are changing with upcoming VS Code releases. The `.github/skills/` location is becoming the standard. Check the [VS Code Agent Skills documentation](https://code.visualstudio.com/docs/copilot/customization/agent-skills) for the latest guidance.
 
 ---
 
@@ -295,22 +325,6 @@ Custom agents give you:
 
 ---
 
-### Memory – Long-Running Context Management
-
-**Role**: Retrieves/stores long-term context using Flowbaby memory so tasks stay coherent across sessions.
-
-**Use when**:
-- You’re resuming a long-running effort and want it to “remember” past decisions.
-- You want explicit memory summaries and retrievals.
-
-**Example handoff prompt**:
-- To Memory: "Continue working on this task with memory context."
-
-**Tips**:
-- Think of Memory as your “project brain” that keeps track of plans, decisions, and patterns.
-- It doesn’t replace other agents—rather, it supports them by recalling relevant history.
-
----
 
 ## Putting It All Together
 
@@ -318,4 +332,4 @@ Custom agents give you:
 - Use **Architect / Analyst / Security / Critic** to refine and de‑risk the plan and architecture.
 - Hand off to **Implementer** for code and tests, then **QA** for technical quality, **UAT** for value, **DevOps** for release.
 - Afterward, let **Retrospective** and **ProcessImprovement** update how you work next time.
-- Use **Memory** throughout to keep context across sessions.
+- **All agents use Flowbaby memory** via the `memory-contract` skill. Agents function without Flowbaby but greatly benefit from its cross-session context.

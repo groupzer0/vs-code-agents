@@ -253,13 +253,44 @@ Edit `.agent.md` files to adjust:
 
 ## Recent Updates
 
-The last few commits introduced several improvements to how these agents integrate with VS Code and Flowbaby:
+Recent commits introduced significant improvements to agent workflow and capabilities:
 
-- **Refined Flowbaby memory contract (88ae9ccd, 2025-12-16)**: All core agents now embed a unified Flowbaby memory contract and share a concrete example in [vs-code-agents/reference/memory-contract-example.md](vs-code-agents/reference/memory-contract-example.md), making memory usage mandatory and consistent.
-- **Aligned agent tool names with VS Code APIs (c47c1e2, 2025-12-16)**: Agent `tools` definitions now use the official VS Code agent tool identifiers (for example, `read/readFile`, `edit/editFiles`, `execute/runInTerminal`), improving reliability when running as VS Code agents.
-- **Added subagent usage patterns (d5be1cc, 2025-12-15)**: Planner, Implementer, QA, Analyst, and Security now document how to invoke each other as scoped subagents in VS Code 1.107, while preserving clear ownership of planning, implementation, QA, and security responsibilities.
-- **Background Implementer mode (5958e05, 2025-12-15)**: Planner and Implementer now explain that implementation can run either as a local chat session or as a background agent (for example, in a separate Git worktree), with the human user always choosing the mode.
-- **Repository cleanup and unified memory (dde6211, 2025-12-15)**: Removed the legacy `memory.agent.md` in favor of the shared memory contract embedded in each agent and cleaned up an unused Markdown lint configuration file.
+### Skills System (2025-12-19)
+
+Agents now use **Claude Skills**—modular, reusable instruction sets that load on-demand:
+
+| Skill | Purpose |
+|-------|---------|
+| `memory-contract` | Unified Flowbaby memory retrieval/storage contract |
+| `architecture-patterns` | ADR templates, patterns, anti-pattern detection |
+| `code-review-checklist` | Pre/post-implementation review criteria |
+| `engineering-standards` | SOLID, DRY, YAGNI, KISS with detection patterns |
+| `release-procedures` | Two-stage release workflow, semver, platform constraints |
+| `security-patterns` | OWASP Top 10, language-specific vulnerabilities |
+| `testing-patterns` | TDD workflow, test pyramid, coverage strategies |
+
+**Skill Placement:**
+- **VS Code Stable (1.107.1)**: Place in `.claude/skills/`
+- **VS Code Insiders**: Place in `.github/skills/`
+
+> [!NOTE]
+> These locations are changing with upcoming VS Code releases. The `.github/skills/` location is becoming the standard. See the [VS Code Agent Skills documentation](https://code.visualstudio.com/docs/copilot/customization/agent-skills) for the latest guidance.
+
+### Key Agent Flow Improvements
+
+- **TDD mandatory**: Implementer and QA now require Test-Driven Development for new feature code
+- **Two-stage release**: DevOps commits locally first; pushes only on explicit release approval
+- **Document status tracking**: All agents update Status fields in planning docs ("Draft", "In Progress", "Released")
+- **Open Question Gate**: Implementer halts if plans have unresolved questions; requires explicit user acknowledgment to proceed
+- **Memory as skill**: Memory contract moved from inline in each agent to a loadable `memory-contract` skill
+- **Slimmed Security agent**: Reduced by 46% using skill references instead of inline content
+
+### Previous Updates
+
+- **Refined Flowbaby memory contract (2025-12-16)**: All core agents share a unified memory contract. Agents function without Flowbaby but greatly benefit from its use.
+- **Aligned agent tool names with VS Code APIs (2025-12-16)**: Agent `tools` definitions now use official VS Code agent tool identifiers.
+- **Added subagent usage patterns (2025-12-15)**: Planner, Implementer, QA, Analyst, and Security document how to invoke each other as scoped subagents.
+- **Background Implementer mode (2025-12-15)**: Implementation can run as local chat or background agent in isolated Git worktree.
 
 ## Contributing
 
