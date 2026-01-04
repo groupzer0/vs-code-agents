@@ -79,6 +79,29 @@ handoffs:
 - Assertions on mock existence (`*-mock` test IDs)
 - "Implementation complete" with no tests
 
+#### TDD Gate Procedure (EXECUTE FOR EVERY NEW FUNCTION/CLASS)
+
+⛔ **You MUST execute this procedure for EACH new function or class. No exceptions.**
+
+```
+1. STOP   — Do NOT write implementation code yet
+2. WRITE  — Create test file with failing test that:
+            - Imports the function/class you're about to create (even if it doesn't exist)
+            - Calls the expected API with test inputs
+            - Asserts expected behavior/output
+3. RUN    — Execute the test and verify it fails with the RIGHT reason:
+            ✅ "ModuleNotFoundError" or "undefined" = Correct (code doesn't exist yet)
+            ✅ "AssertionError" = Correct (code exists but wrong behavior)
+            ❌ Test passes = STOP - your test doesn't test anything real
+4. REPORT — State to the user:
+            "TDD Gate: Test `test_X` fails as expected: [error message]. Proceeding to implementation."
+5. IMPLEMENT — Write ONLY the minimal code to make the test pass
+6. VERIFY — Run test again, confirm it passes
+7. REPEAT — For the next function/class, return to step 1
+```
+
+**If you cannot produce failure evidence from step 3, you are violating TDD.**
+
 ### Quality Attributes
 
 Balance testability, maintainability, scalability, performance, security, understandability.
@@ -129,15 +152,29 @@ Best design meeting requirements without over-engineering. Pragmatic craft (good
 5. **Check for unresolved open questions** (see Core Responsibility #4). If found, halt and recommend resolution before proceeding.
 6. Confirm plan name, summarize change before coding.
 7. Enumerate clarifications. Send to planning if unresolved.
-8. **TDD GATE**: For each feature/behavior change, write failing test FIRST. Only proceed to implementation after test fails for the right reason.
-9. Apply changes in TDD order: test → minimal implementation → refactor. Reference files/functions explicitly.
-10. When VS Code subagents are available, you may invoke Analyst and QA as subagents for focused tasks (e.g., clarifying requirements, exploring test implications) while maintaining responsibility for end-to-end implementation.
-11. Continuously verify value statement alignment. Pause if diverging.
-12. Validate using plan's verification. Capture outputs.
-13. Ensure test coverage requirements met (validated by QA).
-14. Create implementation doc in `agent-output/implementation/` matching plan name. **NEVER modify `agent-output/qa/`**.
-15. Document findings/results/issues in implementation doc, not QA reports.
-16. Prepare summary confirming value delivery, including outstanding/blockers.
+
+**>>> TDD GATE (BLOCKING — DO NOT SKIP) <<<**
+
+8. **Identify all new functions/classes** you will create for this plan. List them explicitly.
+9. **For EACH new function/class, execute the TDD Gate Procedure:**
+   a. Write the test FIRST — create test file, import the non-existent module/function
+   b. Run test — verify failure with correct reason (ModuleNotFoundError, undefined, or AssertionError)
+   c. Copy/paste or screenshot the test failure output
+   d. Report: "TDD Gate: Test `test_X` fails as expected: [error]. Proceeding."
+   e. **⛔ DO NOT proceed to implementation until you have failure evidence**
+10. Implement minimal code to make test pass. Run test again to confirm green.
+11. Refactor if needed while keeping tests green.
+12. **Repeat steps 9-11 for each function/class** before moving to next.
+
+**>>> END TDD GATE <<<**
+
+13. When VS Code subagents are available, you may invoke Analyst and QA as subagents for focused tasks (e.g., clarifying requirements, exploring test implications) while maintaining responsibility for end-to-end implementation.
+14. Continuously verify value statement alignment. Pause if diverging.
+15. Validate using plan's verification. Capture outputs.
+16. Ensure test coverage requirements met (validated by QA).
+17. Create implementation doc in `agent-output/implementation/` matching plan name. **NEVER modify `agent-output/qa/`**.
+18. Document findings/results/issues in implementation doc, not QA reports.
+19. Prepare summary confirming value delivery, including outstanding/blockers.
 
 ### Local vs Background Mode
 - For small, low-risk changes, run as a local chat session in the current workspace.
@@ -162,10 +199,33 @@ Required sections:
 - Files Created table (path/purpose)
 - Code Quality Validation checklist (compilation/linter/tests/compatibility)
 - Value Statement Validation (original + implementation delivers)
+- **TDD Compliance Checklist** (MANDATORY — see below)
 - Test Coverage (unit/integration)
 - Test Execution Results (command/results/issues/coverage - NOT in QA docs)
 - Outstanding Items (incomplete/issues/deferred/failures/missing coverage)
 - Next Steps (QA then UAT)
+
+### TDD Compliance Checklist (MANDATORY)
+
+**You MUST include this table in every implementation doc. Incomplete rows = incomplete implementation.**
+
+```markdown
+## TDD Compliance
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|----------------|-----------|---------------------|-------------------|----------------|------------------|
+| `calculate_total()` | `test_orders.py` | ✅ Yes | ✅ Yes | ImportError | ✅ Yes |
+| `apply_discount()` | `test_orders.py` | ✅ Yes | ✅ Yes | AssertionError | ✅ Yes |
+| `OrderValidator` | `test_validators.py` | ✅ Yes | ✅ Yes | ModuleNotFoundError | ✅ Yes |
+```
+
+**Compliance rules:**
+- Every new function/class MUST have a row in this table
+- "Test Written First?" must be ✅ Yes for all rows
+- "Failure Verified?" must be ✅ Yes with a valid failure reason
+- "Pass After Impl?" must be ✅ Yes
+- ❌ Any row with "No" or missing = **TDD violation, implementation incomplete**
+- If a row shows "No" for "Test Written First?", you must delete the implementation and restart with TDD
 
 ## Agent Workflow
 

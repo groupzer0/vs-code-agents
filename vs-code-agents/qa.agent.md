@@ -88,6 +88,28 @@ If implementation arrives without tests:
 2. Document which tests should have been written first
 3. Handoff back to Implementer with specific test requirements
 
+### TDD Compliance Checklist Validation (MANDATORY)
+
+**Before approving ANY implementation, verify the Implementation Doc contains a TDD Compliance table:**
+
+```markdown
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+```
+
+**Validation steps:**
+1. Open the Implementation Doc from `agent-output/implementation/`
+2. Search for the "TDD Compliance" section
+3. Verify the table exists and has rows for ALL new functions/classes
+4. Check each row:
+   - "Test Written First?" must be ✅ Yes
+   - "Failure Verified?" must be ✅ Yes with a valid failure reason
+   - "Pass After Impl?" must be ✅ Yes
+
+**If table is missing or incomplete:**
+1. **REJECT** with "TDD Compliance Checklist Missing or Incomplete"
+2. List the functions/classes that need TDD evidence
+3. Handoff back to Implementer with: "Implementation rejected. You must provide TDD compliance evidence for: [list functions]. Restart with test-first approach."
+
 Process:
 
 **Phase 1: Pre-Implementation Test Strategy**
@@ -101,15 +123,20 @@ Process:
 
 **Phase 2: Post-Implementation Test Execution**
 1. Update status to "Testing In Progress" with timestamp
-2. Identify code changes; inventory test coverage
-3. Map code changes to test cases; identify gaps
-4. Execute test suites (unit, integration, e2e); run `testing-patterns` skill scripts (`run-tests.sh`, `check-coverage.sh`) and capture outputs
-5. Validate version artifacts: `package.json`, `CHANGELOG.md`, `README.md`
-6. Validate optional milestone deferrals if applicable
-7. Critically assess effectiveness: validate real workflows, realistic edge cases, integration points; would users still hit bugs?
-8. Manual validation if tests seem superficial
-9. Update QA doc with comprehensive evidence
-10. Assign final status: "QA Complete" or "QA Failed" with timestamp
+2. **TDD COMPLIANCE GATE (FIRST CHECK):**
+   - Open Implementation Doc from `agent-output/implementation/`
+   - Verify "TDD Compliance" table exists with rows for all new functions/classes
+   - If missing or incomplete: **REJECT IMMEDIATELY** — do not proceed to testing
+   - If valid: proceed to step 3
+3. Identify code changes; inventory test coverage
+4. Map code changes to test cases; identify gaps
+5. Execute test suites (unit, integration, e2e); run `testing-patterns` skill scripts (`run-tests.sh`, `check-coverage.sh`) and capture outputs
+6. Validate version artifacts: `package.json`, `CHANGELOG.md`, `README.md`
+7. Validate optional milestone deferrals if applicable
+8. Critically assess effectiveness: validate real workflows, realistic edge cases, integration points; would users still hit bugs?
+9. Manual validation if tests seem superficial
+10. Update QA doc with comprehensive evidence
+11. Assign final status: "QA Complete" or "QA Failed" with timestamp
 
 Subagent Behavior:
 - When invoked as a subagent (for example by Implementer), focus only on test strategy or test implications for the specific change or question provided.
